@@ -1,5 +1,4 @@
 ## English
-##  Stock Analyzer 
 
 ### Purpose
 The purpose of this code is to provide a stock analyzer application that can analyze and visualize the historical data of a given stock. It offers various technical indicators and predictions using linear regression to assist users in making informed investment decisions.
@@ -41,7 +40,6 @@ Please note that this code and the information provided by the application are i
 
 
 ## Türkçe
-## Hisse Senedi Analizörü
 
 ### Amaç
 Bu kodun amacı, belirli bir hisse senedinin geçmiş verilerini analiz edebilen ve görselleştirebilen bir hisse senedi analizörü uygulaması sunmaktır. Lineer regresyon kullanarak çeşitli teknik göstergeler ve tahminler sunarak kullanıcıların bilinçli yatırım kararları almasına yardımcı olur.
