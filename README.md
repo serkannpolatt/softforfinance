@@ -16,7 +16,7 @@ This Python code utilizes the Streamlit library to create a user-friendly interf
 
 - **Indicator explanations:** The application provides explanations and descriptions for each technical indicator to help users understand their significance and interpretation.
 
-## Table of Contents
+### Table of Contents
 
 1. **Data Retrieval and Preprocessing**: In this section, we retrieve historical stock price data using the `yfinance` library, preprocess the data, and extract relevant features such as Open, Close, High, Low prices, and trading volume.
 
@@ -91,6 +91,8 @@ Hisse senedi analizörü uygulamasını kullanmak için:
 - Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak "GOOG" kullanılacaktır.
 
 - Uygulama hisse senedi verilerini alacak ve girilen sembolü görüntüleyecektir. Ardından çeşitli teknik göstergeleri, tahminleri ve grafikleri keşfedebilirsiniz.
+
+### İçindekiler
 
 1. **Veri Alma ve Ön İşleme**: Bu bölümde, "yfinance" kütüphanesini kullanarak geçmiş hisse senedi fiyat verilerini alıyoruz, verileri ön işliyoruz ve Açılış, Kapanış, Yüksek, Düşük fiyatlar ve işlem hacmi gibi ilgili özellikleri çıkarıyoruz. .
 
