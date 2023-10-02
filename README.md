@@ -16,6 +16,28 @@ This Python code utilizes the Streamlit library to create a user-friendly interf
 
 - **Indicator explanations:** The application provides explanations and descriptions for each technical indicator to help users understand their significance and interpretation.
 
+## Table of Contents
+
+1. **Data Retrieval and Preprocessing**: In this section, we retrieve historical stock price data using the `yfinance` library, preprocess the data, and extract relevant features such as Open, Close, High, Low prices, and trading volume.
+
+2. **Data Visualization**: We visualize the historical stock price data using Matplotlib. This includes plotting open and close prices, moving averages, Bollinger Bands, and other technical indicators.
+
+3. **Machine Learning Models**:
+   - **Linear Regression**: We implement a Linear Regression model to predict stock prices based on historical data.
+   - **LSTM Model**: We create a Long Short-Term Memory (LSTM) model for time series prediction.
+   - **Transformer Model**: We build a Transformer model for stock price prediction using the Transformer architecture.
+
+4. **Model Evaluation and Comparison**: We evaluate the performance of the different models using metrics such as Mean Squared Error (MSE) and visualize the predictions.
+
+5. **Volatility Analysis**: We calculate and analyze the volatility of the stock prices.
+
+6. **Trading Signals**: We generate buy and sell signals based on moving average crossovers.
+
+7. **Future Price Prediction**: We use the trained models to make future price predictions and visualize the forecasted prices.
+
+8. **Noise Simulation**: We add noise to the predicted prices to simulate more realistic scenarios.
+
+
 ### Usage
 To use the stock analyzer application:
 
@@ -53,7 +75,7 @@ Bu Python kodu, hisse senedi analizörü uygulaması için kullanıcı dostu bir
 
 - **Lineer Regresyon Tahminleri:** Uygulama, geçmiş verilere dayanarak gelecekteki hisse senedi fiyatları için tahminler oluşturmak için lineer regresyon kullanır.
 
-- Grafik yakınlaştırma: Kullanıcılar grafikleri yakınlaştırarak hisse senedinin destek ve direnç seviyelerini daha yakından inceleyebilir.
+- **Grafik yakınlaştırma:** Kullanıcılar grafikleri yakınlaştırarak hisse senedinin destek ve direnç seviyelerini daha yakından inceleyebilir.
 
 - **Gösterge açıklamaları:** Uygulama, her teknik gösterge için açıklamalar ve tanımlamalar sunar, böylece kullanıcılar bunların önemini ve yorumunu anlamalarına yardımcı olur.
 
@@ -69,6 +91,26 @@ Hisse senedi analizörü uygulamasını kullanmak için:
 - Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak "GOOG" kullanılacaktır.
 
 - Uygulama hisse senedi verilerini alacak ve girilen sembolü görüntüleyecektir. Ardından çeşitli teknik göstergeleri, tahminleri ve grafikleri keşfedebilirsiniz.
+
+1. **Veri Alma ve Ön İşleme**: Bu bölümde, "yfinance" kütüphanesini kullanarak geçmiş hisse senedi fiyat verilerini alıyoruz, verileri ön işliyoruz ve Açılış, Kapanış, Yüksek, Düşük fiyatlar ve işlem hacmi gibi ilgili özellikleri çıkarıyoruz. .
+
+2. **Veri Görselleştirme**: Geçmiş hisse senedi fiyat verilerini Matplotlib kullanarak görselleştiriyoruz. Buna açılış ve kapanış fiyatlarının, hareketli ortalamaların, Bollinger Bantlarının ve diğer teknik göstergelerin çizilmesi de dahildir.
+
+3. **Makine Öğrenimi Modelleri**:
+   - **Doğrusal Regresyon**: Hisse senedi fiyatlarını geçmiş verilere dayanarak tahmin etmek için Doğrusal Regresyon modelini uyguluyoruz.
+   - **LSTM Modeli**: Zaman serisi tahmini için Uzun Kısa Süreli Bellek (LSTM) modeli oluşturuyoruz.
+   - **Transformer Modeli**: Transformer mimarisini kullanarak hisse senedi fiyat tahmini için Transformer modeli oluşturuyoruz.
+
+4. **Model Değerlendirme ve Karşılaştırma**: Ortalama Karesel Hata (MSE) gibi ölçümleri kullanarak farklı modellerin performansını değerlendiriyor ve tahminleri görselleştiriyoruz.
+
+5. **Volatilite Analizi**: Hisse senedi fiyatlarının oynaklığını hesaplıyor ve analiz ediyoruz.
+
+6. **Ticaret Sinyalleri**: Hareketli ortalama geçişlere dayalı olarak alım ve satım sinyalleri üretiriz.
+
+7. **Gelecekteki Fiyat Tahmini**: Gelecekteki fiyat tahminleri yapmak ve tahmin edilen fiyatları görselleştirmek için eğitilmiş modelleri kullanıyoruz.
+
+8. **Gürültü Simülasyonu**: Daha gerçekçi senaryoları simüle etmek için tahmin edilen fiyatlara gürültü ekliyoruz.
+
 
 ### Katkıda Bulunma
 Bu projeye katkıda bulunmak isterseniz, depoyu çatallayabilir ve istediğiniz değişiklikleri yapabilirsiniz. Ayrıca, iyileştirmeler veya hata düzeltmeleri için sorunları açabilir veya birleştirme istekleri gönderebilirsiniz.
