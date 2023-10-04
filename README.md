@@ -41,13 +41,17 @@ This Python code utilizes the Streamlit library to create a user-friendly interf
 ### Usage
 To use the stock analyzer application:
 
-- Install the necessary dependencies by running the command: pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf.
+- Install the necessary dependencies by running the command:
 
-- Execute the code by running: streamlit run stock_analyzer.py.
+      `pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf`
+
+- Execute the code by running:
+
+      `streamlit run stock_analyzer.py.`
 
 - The Streamlit server will start, and the application will open in your browser.
 
-- Enter the desired stock ticker symbol in the text input field. If no ticker is entered, the default ticker "GOOG" will be used.
+- Enter the desired stock ticker symbol in the text input field. If no ticker is entered, the default ticker `GOOG` will be used.
 
 - The application will retrieve the stock data and display the entered ticker. You can then explore the various technical indicators, predictions, and charts.
 
@@ -82,13 +86,17 @@ Bu Python kodu, hisse senedi analizörü uygulaması için kullanıcı dostu bir
 ### Kullanım
 Hisse senedi analizörü uygulamasını kullanmak için:
 
-- Gerekli bağımlılıkları yüklemek için şu komutu çalıştırın: pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf.
+- Gerekli bağımlılıkları yüklemek için şu komutu çalıştırın:
 
-- Kodu çalıştırmak için şu komutu çalıştırın: streamlit run stock_analyzer.py.
+      `pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf.`
+
+- Kodu çalıştırmak için şu komutu çalıştırın:
+  
+      `streamlit run stock_analyzer.py.`
 
 - Streamlit sunucusu başlayacak ve uygulama tarayıcınızda açılacaktır.
 
-- Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak "GOOG" kullanılacaktır.
+- Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak `GOOG` kullanılacaktır.
 
 - Uygulama hisse senedi verilerini alacak ve girilen sembolü görüntüleyecektir. Ardından çeşitli teknik göstergeleri, tahminleri ve grafikleri keşfedebilirsiniz.
 
