@@ -11,8 +11,30 @@ from fpdf import FPDF
 import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
+from streamlit_option_menu import option_menu
 
 
+
+def main():
+    st.title("Ana Sayfa")
+
+    # Sidebar oluştur
+    st.sidebar.title("İletişim Bilgileri")
+
+    # İletişim bilgilerini sidebar içinde görüntüle
+    st.sidebar.subheader("E-posta:")
+    st.sidebar.write("itsonlydatahustle@gmail.com")
+    st.sidebar.subheader("Github:")
+    st.sidebar.write("https://github.com/serkannpolatt")
+    st.sidebar.subheader("Kaggle:")
+    st.sidebar.write("https://www.kaggle.com/serkanp")
+    st.sidebar.subheader("Daha fazlası için:")
+    st.sidebar.write("https://bento.me/serkan-polat")
+
+
+
+if __name__ == "__main__":
+    main()
 
 figs=[]
 
