@@ -5,3 +5,4 @@ tensorflow==2.8.0
 scikit-learn
 yahoo-fin
 protobuf==3.20.0
+mpld3
