@@ -15,6 +15,7 @@ from streamlit_option_menu import option_menu
 
 
 
+
 def main():
     st.title("Ana Sayfa")
 
@@ -32,16 +33,15 @@ def main():
     st.sidebar.write("https://bento.me/serkan-polat")
 
 
-
 if __name__ == "__main__":
     main()
 
 figs=[]
 
-st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """)
+st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """,unsafe_allow_html=True)
 st.markdown(""" 
 ### Tüm stok ihtiyaçlarınızı tek bir yerde bulun
-Hisse senedi hareketini daha iyi anlamak için sadece birkaç teknik gösterge sağlamakla kalmıyor, aynı zamanda gelecekteki fiyatı tahmin etmek için bir Sinir Ağ modelimiz var.""")
+Hisse senedi hareketini daha iyi anlamak için sadece birkaç teknik gösterge sağlamakla kalmıyor, aynı zamanda gelecekteki fiyatı tahmin etmek için bir Sinir Ağ modelimiz var.""",unsafe_allow_html=True)
 
 
 # Kullanıcıdan hisse senedi simgesini al
@@ -87,9 +87,9 @@ st.markdown("## Teknik Göstergeler")
 
 # Kapanış Fiyatı Görselleştirme
 fig = plt.figure()
-plt.title(f"{ticker} için kapanış fiyatları: {ticker} şu anda {round(close_prices[len(close_prices) - 1], 2)}", fontsize=15,color="white")
-plt.xlabel("Gün Sonrası", fontsize=12,color="white")
-plt.ylabel("Fiyat", fontsize=12,color="white")
+plt.title(f"{ticker} için kapanış fiyatları: {ticker} şu anda {round(close_prices[len(close_prices) - 1], 2)}", fontsize=15,color="red")
+plt.xlabel("Gün Sonrası", fontsize=12,color="red")
+plt.ylabel("Fiyat", fontsize=12,color="red")
 plt.plot(close_prices, label='Kapanış Fiyatı')
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
@@ -106,9 +106,9 @@ relative_strength_indexs = relative_strength_indexs.to_list()
 
 fig = plt.figure()
 plt.plot(relative_strength_indexs, label='RSI Değeri')
-plt.title(f"14 günlük RSI ", fontsize=17, color="white")
-plt.xlabel("Gün Sonrası", fontsize=15, color="white")
-plt.ylabel("RSI Değeri", fontsize=15, color="white")
+plt.title(f"14 günlük RSI ", fontsize=17, color="red")
+plt.xlabel("Gün Sonrası", fontsize=15, color="red")
+plt.ylabel("RSI Değeri", fontsize=15, color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -143,13 +143,13 @@ for i in range(len(standard_deviations)):
 
 
 fig = plt.figure()
-plt.plot(close_avg, label='Basit Hareketli Ortalama',color="white")
+plt.plot(close_avg, label='Basit Hareketli Ortalama',color="red")
 plt.plot(upper_bollinger_band, label='Üst Bant')
 plt.plot(lower_bollinger_band, label='Alt Bant')
 plt.plot(close_prices, 'r', label='Kapanış Fiyatı')
-plt.title("2 std'li Bollinger Bantları", fontsize=17,color="white")
-plt.xlabel("Sonraki gün sayısı", fontsize=15,color="white")
-plt.ylabel("Fiyat", fontsize=15,color="white")
+plt.title("2 std'li Bollinger Bantları", fontsize=17,color="red")
+plt.xlabel("Sonraki gün sayısı", fontsize=15,color="red")
+plt.ylabel("Fiyat", fontsize=15,color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -191,9 +191,9 @@ obv_sma = obv_df.rolling(NUM_OF_DAYS_2).mean()
 fig = plt.figure()
 plt.plot(on_balance_volumes, label='OBV')
 plt.plot(obv_sma, label=' OBV için Basit Hareketli Ortalama')
-plt.title("OBV (On Balance Volume)  Bakiye Hacmi", fontsize=17,color="white")
-plt.xlabel("Sonraki gün sayısı", fontsize=15,color="white")
-plt.ylabel("OBV", fontsize=15,color="white")
+plt.title("OBV (On Balance Volume)  Bakiye Hacmi", fontsize=17,color="red")
+plt.xlabel("Sonraki gün sayısı", fontsize=15,color="red")
+plt.ylabel("OBV", fontsize=15,color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -216,9 +216,9 @@ signal = macd.ewm(span=9, adjust=False).mean()
 fig = plt.figure()
 plt.plot(macd.to_list(), label='MACD')
 plt.plot(signal.to_list(), label='Signal')
-plt.title("Hareketli Ortalama Yakınsama Farklılığı", fontsize=17,color="white")
-plt.ylabel("MACD", fontsize=15,color="white")
-plt.xlabel("Gün Sonrası", fontsize=15,color="white")
+plt.title("Hareketli Ortalama Yakınsama Farklılığı", fontsize=17,color="red")
+plt.ylabel("MACD", fontsize=15,color="red")
+plt.xlabel("Gün Sonrası", fontsize=15,color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -251,9 +251,9 @@ avg_momentum = momentum_sum / len(momentum_values)
 
 fig = plt.figure()
 plt.plot(momentum_values, label='Momentum Values')
-plt.title(f"{MOMENTUM_PERIOD} gün boyunca hisse senedinin ivmesi ", fontsize=17,color="white")
-plt.ylabel("Momentum", fontsize=15,color="white")
-plt.xlabel("Gün Sonrası", fontsize=15,color="white")
+plt.title(f"{MOMENTUM_PERIOD} gün boyunca hisse senedinin ivmesi ", fontsize=17,color="red")
+plt.ylabel("Momentum", fontsize=15,color="red")
+plt.xlabel("Gün Sonrası", fontsize=15,color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -313,9 +313,9 @@ plt.plot(resistance_1, label='Direnç (birinci)')
 plt.plot(support_1, label='Destek (birinci)')
 plt.plot(resistance_2, label='Direnç (ikinci)')
 plt.plot(support_2, label='Destek (ikinci)')
-plt.title("Destek ve Direnç", fontsize=17, color="white")
-plt.xlabel("Gün Sonrası", fontsize=15, color="white")
-plt.ylabel("Fiyat", fontsize=15, color="white")
+plt.title("Destek ve Direnç", fontsize=17, color="red")
+plt.xlabel("Gün Sonrası", fontsize=15, color="red")
+plt.ylabel("Fiyat", fontsize=15, color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -428,9 +428,9 @@ print(len(tot_prices))
 fig = plt.figure()
 plt.plot(tot_prices, label='Tahmin Edilen Gelecek Fiyatlar')
 plt.plot(close_prices, label='Şimdiki fiyatlar')
-plt.xlabel("Gün Sonrası", fontsize=15, color="white")
-plt.ylabel("Fiyat", fontsize=15, color="white")
-plt.title("Gelecek Fiyat Tahminleri", fontsize=17, color="white")
+plt.xlabel("Gün Sonrası", fontsize=15, color="red")
+plt.ylabel("Fiyat", fontsize=15, color="red")
+plt.title("Gelecek Fiyat Tahminleri", fontsize=17, color="red")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
@@ -655,3 +655,6 @@ if export_as_pdf:
     html = create_download_link(pdf.output(dest="S").encode("latin-1"), f"{ticker} analizi")
     st.markdown(html, unsafe_allow_html=True)
     st.text("")
+    
+    
+    
