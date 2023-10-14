@@ -7,3 +7,4 @@ yahoo-fin
 protobuf==3.20.0
 mpld3
 pandas_ta
+fpdf
