@@ -462,21 +462,21 @@ if export_as_pdf:
     pdf.add_page()
 
     # Ana başlık için yazı tipini ve boyutunu ayarla
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.ln(40)
     pdf.multi_cell(w=0, h=15, txt=f"Hisse senedi analizi: {ticker}")
 
     # Giriş için yeni bir sayfa ekle
     pdf.add_page()
-    pdf.set_font(FONT_FAMILY, size=40)
-    pdf.cell(0, txt="Introduction")
+    pdf.set_font(FONT_FAMILY, size=30)
+    pdf.cell(0, txt="Giris")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
     pdf.multi_cell(w=0, h=7, txt=f"Bu rapor, {ticker} hissesini cesitli teknik gostergeleri ve diger teknikleri kullanarak analiz edecek ve verilen hissenin gelecekteki egilimleri hakkinda fikir verecektir.")
     pdf.ln(15)
 
     # Kullanılan göstergeler için yeni bir sayfa ekle
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Kullanilan Gostergeler")
     pdf.ln(15)
 
@@ -490,14 +490,14 @@ if export_as_pdf:
 
     pdf.add_page()
     pdf.ln(5)
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="RSI")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
     pdf.multi_cell(w=0, h=7,
                    txt=f"RSI veya Goreceli Güc Endeksi, bir hissenin asiri alim veya asiri satim durumunu gosterir. RSI >= 70, bir hissenin asiri alindigini ve fiyatda bir dusus olabilecegini gosterirken, RSI <= 30, bir hissenin asiri satildigini ve yakin bir gelecekte boga egilimi gosterebilecegini gosterir.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=25)
+    pdf.set_font(FONT_FAMILY, size=13)
     pdf.multi_cell(w=0, h=8, txt=f"RSI grafigi, {ticker} icin bir yil boyunca asagida verilmistir.")
     pdf.ln(8)
 
@@ -523,16 +523,16 @@ if export_as_pdf:
                    txt=f"Mevcut RSInin {round(curr_rsi, 2)} oldugu goruluyor ki bu, bir yil suren hisse senedi egilimine gore {rsi_state_rel} olarak kabul edilir. Normal bir senaryoda boyle bir RSI, {rsi_state_abs} olarak kabul edilir. Bu nedenle bu, daha fazla {sell_state} oldugunu ve yakin bir gelecekte {price_action_dir} bir egilim olabilecegini gosterir. Unutmayin ki bu, sirket veya sirketin genel performansi veya karliligi hakkindaki insanlarin duygularini dikkate almayan yalnizca bir teknik gosterge oldugu icin bu stratejiyi kullanmanin bir riski vardir. Bu, sadece bu gosterge icin degil, bundan sonraki tum diger gostergeler icin de gecerlidir.")
     pdf.add_page()
     pdf.ln(5)
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Bollinger Bantlari")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
     pdf.multi_cell(w=0, h=7,
                    txt=f"Bollinger bantlarini kullanarak borsadaki oynaklik ve hareket halindeki onemli trendlerin olup olmadigi hakkinda fikir edinilebilir. Bollinger bantlari RSI ile desteklendiginde bize hisse senedinin durumu hakkinda cok net bir resim veriyor.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=25)
+    pdf.set_font(FONT_FAMILY, size=10)
     pdf.multi_cell(
-        w=0, h=10, txt=f"Bollinger bantlari kullanarak hisse senedi piyasasinin volatilitesi hakkinda bir fikir edinmek mumkun ve herhangi bir buyuk trendin olup olmadigini takip etmek mumkun. RSI ile birlestirildiginde, bir hissenin durumu hakkinda cok net bir resim elde edebiliriz.")
+        w=0, h=5, txt=f"Bollinger bantlari kullanarak hisse senedi piyasasinin volatilitesi hakkinda bir fikir edinmek mumkun ve herhangi bir buyuk trendin olup olmadigini takip etmek mumkun. RSI ile birlestirildiginde, bir hissenin durumu hakkinda cok net bir resim elde edebiliriz.")
     pdf.ln(8)
     with NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
         figs[2].savefig(tmpfile.name)
@@ -542,7 +542,7 @@ if export_as_pdf:
               12, 90, WIDTH - 20, 100)
     name = ""
     pdf.ln(100)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=10)
 
     close_price_sma_status = "above" if close_prices[len(close_prices) - 1] > close_avg[len(close_avg) - 1] else "below"
     close_sma_stat_msg = "bu, hisse senedinin 5 gunluk SMA donemi uzerinde boga egilimi gosterdigi anlamina gelir." if close_price_sma_status == "uzerinde" else "bu, hisse senedinin yakin gecmiste veya 5 gunluk SMA donemi boyunca dusus gosterdigi anlamina gelir." if close_price_sma_status == "above" else "bu, hisse senedinin yakin zamanda veya SMA donemi boyunca dusus egilimi gosterdigi anlamina gelir"
@@ -560,19 +560,19 @@ if export_as_pdf:
     print(abs(lower_bollinger_band[len(
         lower_bollinger_band) - 1] - close_prices[len(close_prices) - 1]))
 
-    pdf.multi_cell(w=0, h=4,
+    pdf.multi_cell(w=0, h=7,
                    txt=f"Artik devam edip ust ve alt bollinger bantlarina bakabiliriz. Sectigimiz hisse senedinin {closer_band} bandina daha yakin oldugunu gorebiliriz. Buna bakarak hisse senedinin egilimini ve gucunu tespit edebiliriz. Boylece bu, RSI gostergemizi cok sorunsuz bir sekilde tamamliyor.")
 
     pdf.add_page()
     pdf.ln(5)
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="OBV")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
     pdf.multi_cell(w=0, h=7,
                    txt=f"OBV veya On Balance Volume, bir varligin toplam islem hacmi hakkinda bir fikir edinmek ve hareket edip etmedigini takip etmek icin kullanilabilir. Bir hissenin OBV'sindeki herhangi buyuk hareketler, buyuk kurumsal yatirimcilar tarafindan yapilan herhangi hareketleri takip etmek icin kullanilabilir.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=25)
+    pdf.set_font(FONT_FAMILY, size=13)
     pdf.multi_cell(
         w=0, h=10, txt=f"{ticker} icin bir yil boyunca OBV'nin bir gorsellestirmesi.")
     pdf.ln(3)
@@ -590,7 +590,7 @@ if export_as_pdf:
 
     pdf.add_page()
     pdf.ln(5)
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="MACD")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
@@ -614,7 +614,7 @@ if export_as_pdf:
 
     pdf.add_page()
     pdf.ln(5)
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Momentum")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
@@ -644,7 +644,7 @@ if export_as_pdf:
 
     pdf.add_page()
     pdf.ln(5)
-    pdf.set_font(FONT_FAMILY, size=40)
+    pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Gelecek Tahmini")
     pdf.ln(15)
     pdf.set_font(FONT_FAMILY, size=13)
@@ -663,4 +663,5 @@ if export_as_pdf:
     st.text("")
     
     
-    
+    st.markdown("#### Yazar:")
+    pdf.cell(0, txt="Serkan Polat")
