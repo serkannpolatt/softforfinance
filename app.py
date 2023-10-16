@@ -332,7 +332,7 @@ st.markdown("***")
 
 
 
-st.markdown("## Doğrusal Regresyon Tahminleri")
+st.markdown("## Gelecek Fiyat Tahminleri")
 
 
 # Veri kümesini hazırla
