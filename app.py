@@ -14,10 +14,8 @@ from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
 
 
-st.set_page_config(
+base="light"
 
-    theme="light"  # Bu satır, light mode'u etkinleştirir
-)
 def main():
     st.title("Ana Sayfa")
     
