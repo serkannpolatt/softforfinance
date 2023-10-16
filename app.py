@@ -446,7 +446,7 @@ figs.append(fig)
 # PDF İndirme İşlevselliği
 def create_download_link(val, filename):
     b64 = base64.b64encode(val)  
-    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Download file</a>'
+    return f'<a href="data:application/octet-stream;base64,{b64.decode()}" download="{filename}.pdf">Dosyayı indir</a>'
 
 st.text("")
 export_as_pdf = st.button("Raporu PDF Olarak Dışa Aktar")
@@ -464,41 +464,50 @@ if export_as_pdf:
     # Ana başlık için yazı tipini ve boyutunu ayarla
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.ln(40)
-    pdf.multi_cell(w=0, h=15, txt=f"Hisse senedi analizi: {ticker}")
+    pdf.multi_cell(w=0, h=15, txt=f"Hisse senedi analizi: {ticker}", align='C')  # 'C' parametresi ile metni ortala
+    pdf.ln(60)
 
     # Giriş için yeni bir sayfa ekle
+    pdf.ln(40)
     pdf.add_page()
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Giris")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=15)
     pdf.multi_cell(w=0, h=7, txt=f"Bu rapor, {ticker} hissesini cesitli teknik gostergeleri ve diger teknikleri kullanarak analiz edecek ve verilen hissenin gelecekteki egilimleri hakkinda fikir verecektir.")
-    pdf.ln(15)
+    pdf.ln(50)
+    pdf.ln(50)
 
     # Kullanılan göstergeler için yeni bir sayfa ekle
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Kullanilan Gostergeler")
-    pdf.ln(15)
+    pdf.ln(30)
 
     # Göstergelerin bir listesini tanımla
-    indicators = ["RSI", "Bollinger Bantlari", "OBV", "MACD", "Momentum"]
-    pdf.set_font(FONT_FAMILY, size=13)
+    indicators = ["RSI", 
+                "Bollinger Bantlari", 
+                "OBV", 
+                "MACD", 
+                "Momentum"]
+
+    pdf.set_font(FONT_FAMILY, size=20)
 
     for i in range(len(indicators)):
         pdf.cell(0, txt=f"{i + 1}. {indicators[i]}")
-        pdf.ln(6)
+        pdf.ln(10)  # Her gösterge başlığından sonra 6 birim yüksekliğinde bir boşluk bırakır
+
 
     pdf.add_page()
     pdf.ln(5)
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="RSI")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
     pdf.multi_cell(w=0, h=7,
                    txt=f"RSI veya Goreceli Güc Endeksi, bir hissenin asiri alim veya asiri satim durumunu gosterir. RSI >= 70, bir hissenin asiri alindigini ve fiyatda bir dusus olabilecegini gosterirken, RSI <= 30, bir hissenin asiri satildigini ve yakin bir gelecekte boga egilimi gosterebilecegini gosterir.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
-    pdf.multi_cell(w=0, h=8, txt=f"RSI grafigi, {ticker} icin bir yil boyunca asagida verilmistir.")
+    pdf.set_font(FONT_FAMILY, size=20)
+    pdf.multi_cell(w=0, h=10, txt=f"RSI grafigi, {ticker} icin bir yil boyunca asagida verilmistir:")
     pdf.ln(8)
 
     # RSI grafiğini geçici bir resim dosyası olarak kaydet
@@ -509,7 +518,7 @@ if export_as_pdf:
     pdf.image(name, 12, 100, WIDTH - 20, 100)
     name = ""
     pdf.ln(115)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
 
     curr_rsi = relative_strength_indexs[len(relative_strength_indexs) - 1]
     rsi_mean = pd.Series(relative_strength_indexs).mean()
@@ -519,21 +528,21 @@ if export_as_pdf:
     sell_state = f"selling" if rsi_state_abs == "low" else f"buying"
     price_action_dir = f"upward" if sell_state == "selling" else f"downward"
 
-    pdf.multi_cell(w=0, h=7,
+    pdf.multi_cell(w=0, h=7,    
                    txt=f"Mevcut RSInin {round(curr_rsi, 2)} oldugu goruluyor ki bu, bir yil suren hisse senedi egilimine gore {rsi_state_rel} olarak kabul edilir. Normal bir senaryoda boyle bir RSI, {rsi_state_abs} olarak kabul edilir. Bu nedenle bu, daha fazla {sell_state} oldugunu ve yakin bir gelecekte {price_action_dir} bir egilim olabilecegini gosterir. Unutmayin ki bu, sirket veya sirketin genel performansi veya karliligi hakkindaki insanlarin duygularini dikkate almayan yalnizca bir teknik gosterge oldugu icin bu stratejiyi kullanmanin bir riski vardir. Bu, sadece bu gosterge icin degil, bundan sonraki tum diger gostergeler icin de gecerlidir.")
     pdf.add_page()
     pdf.ln(5)
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Bollinger Bantlari")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
     pdf.multi_cell(w=0, h=7,
                    txt=f"Bollinger bantlarini kullanarak borsadaki oynaklik ve hareket halindeki onemli trendlerin olup olmadigi hakkinda fikir edinilebilir. Bollinger bantlari RSI ile desteklendiginde bize hisse senedinin durumu hakkinda cok net bir resim veriyor.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=10)
+    pdf.set_font(FONT_FAMILY, size=12)
     pdf.multi_cell(
-        w=0, h=5, txt=f"Bollinger bantlari kullanarak hisse senedi piyasasinin volatilitesi hakkinda bir fikir edinmek mumkun ve herhangi bir buyuk trendin olup olmadigini takip etmek mumkun. RSI ile birlestirildiginde, bir hissenin durumu hakkinda cok net bir resim elde edebiliriz.")
-    pdf.ln(8)
+        w=0, h=7, txt=f"Bollinger bantlari kullanarak hisse senedi piyasasinin volatilitesi hakkinda bir fikir edinmek mumkun ve herhangi bir buyuk trendin olup olmadigini takip etmek mumkun. RSI ile birlestirildiginde, bir hissenin durumu hakkinda cok net bir resim elde edebiliriz.")
+    pdf.ln(10)
     with NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
         figs[2].savefig(tmpfile.name)
         name = tmpfile.name
@@ -542,15 +551,15 @@ if export_as_pdf:
               12, 90, WIDTH - 20, 100)
     name = ""
     pdf.ln(100)
-    pdf.set_font(FONT_FAMILY, size=10)
+    pdf.set_font(FONT_FAMILY, size=12)
 
     close_price_sma_status = "above" if close_prices[len(close_prices) - 1] > close_avg[len(close_avg) - 1] else "below"
     close_sma_stat_msg = "bu, hisse senedinin 5 gunluk SMA donemi uzerinde boga egilimi gosterdigi anlamina gelir." if close_price_sma_status == "uzerinde" else "bu, hisse senedinin yakin gecmiste veya 5 gunluk SMA donemi boyunca dusus gosterdigi anlamina gelir." if close_price_sma_status == "above" else "bu, hisse senedinin yakin zamanda veya SMA donemi boyunca dusus egilimi gosterdigi anlamina gelir"
-
+    pdf.ln(20)
     pdf.multi_cell(w=0, h=7,
                    txt=f"Bu durumda, mevcut kapanis fiyatinin 5 gunluk bir donem uzerinde oldugunu gorebiliriz. {close_sma_stat_msg}")
     
-    pdf.ln(8)
+    pdf.ln(20)
 
     closer_band = "upper band" if abs(
         upper_bollinger_band[len(upper_bollinger_band) - 1] - close_prices[len(close_prices) - 1]) < abs(
@@ -568,13 +577,13 @@ if export_as_pdf:
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="OBV")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
     pdf.multi_cell(w=0, h=7,
                    txt=f"OBV veya On Balance Volume, bir varligin toplam islem hacmi hakkinda bir fikir edinmek ve hareket edip etmedigini takip etmek icin kullanilabilir. Bir hissenin OBV'sindeki herhangi buyuk hareketler, buyuk kurumsal yatirimcilar tarafindan yapilan herhangi hareketleri takip etmek icin kullanilabilir.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=20)
     pdf.multi_cell(
-        w=0, h=10, txt=f"{ticker} icin bir yil boyunca OBV'nin bir gorsellestirmesi.")
+        w=0, h=10, txt=f"{ticker} icin bir yil boyunca OBV'nin bir gorsellestirmesi:")
     pdf.ln(3)
     with NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
         figs[3].savefig(tmpfile.name)
@@ -584,7 +593,8 @@ if export_as_pdf:
               12, 90, WIDTH - 20, 100)
     name = ""
     pdf.ln(120)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
+    pdf.ln(30)
     pdf.multi_cell(w=0, h=7,
                    txt=f'Bu durumda, son OBV trendine bakarsak, buyuk kurumsal yatirimcilarla sadece siradan yatirimcilar arasindaki genel gorunum hakkinda iyi bir fikir edinebiliriz. Ayrica, OBV gostergesi herhangi baska ayrinti gerektirmez.')
 
@@ -593,16 +603,16 @@ if export_as_pdf:
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="MACD")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
     pdf.multi_cell(w=0, h=7,
                    txt="MACD gostergesi bize hisse senedinin trendi hakkinda iyi bir fikir veriyor. MACD degerindeki artis sunu gosterir: "
                        "Fiyatin gosterdigi ve muhtemelen isaretin artan bir egilim gosterdigini varsayarsak, bunun tersi de dogrudur. Ayrica "
                        "MACD ile sinyal cizgisinin kesismesinin yeni bir trendin baslangicini gosterdigine dikkat edilmelidir.")
 
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=25)
+    pdf.set_font(FONT_FAMILY, size=20)
     pdf.multi_cell(
-        w=0, h=10, txt=f"{ticker} icin bir yil boyunca Momentum'un bir gorsellestirmesi.")
+        w=0, h=10, txt=f"{ticker} icin bir yil boyunca Momentum'un bir gorsellestirmesi:")
     pdf.ln(3)
     with NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
         figs[4].savefig(tmpfile.name)
@@ -617,13 +627,13 @@ if export_as_pdf:
     pdf.set_font(FONT_FAMILY, size=30)
     pdf.cell(0, txt="Momentum")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
     pdf.multi_cell(w=0, h=7,
                    txt=f"Adi gibi Momentum gostergesi bize bir hisse senedinin momentumu, yani bir hisse senedinin sahip oldugu trendin gucu hakkinda fikir verir. Momentuma bakarak bir alim, satim, yukselis veya dusus egiliminin ne kadar sure devam edecegini belirleyebiliriz.")
     pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=25)
+    pdf.set_font(FONT_FAMILY, size=20)
     pdf.multi_cell(
-        w=0, h=10, txt=f"{ticker} icin bir yil boyunca OBVnin bir gorsellestirmesi.")
+        w=0, h=10, txt=f"{ticker} icin bir yil boyunca OBVnin bir gorsellestirmesi:")
     pdf.ln(3)
     with NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
         figs[5].savefig(tmpfile.name)
@@ -633,10 +643,11 @@ if export_as_pdf:
               12, 90, WIDTH - 20, 100)
     name = ""
     pdf.ln(110)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.set_font(FONT_FAMILY, size=12)
 
     momentum_over_0 = "over zero" if momentum_values[len(momentum_values) - 1] > 0 else "below zero"
     curr_momentum = momentum_values[len(momentum_values) - 1]
+    pdf.ln(30)
     pdf.multi_cell(
         w=0, h=7,
         txt=f"Son momentum degerlerine baktigimizda, hissenin momentumunu kolayca cikarabiliriz. Hissenin mevcut momentumu {round(curr_momentum, 2)} ve yil boyunca ortalama momentumu {round(avg_momentum, 2)}.")
@@ -645,12 +656,12 @@ if export_as_pdf:
     pdf.add_page()
     pdf.ln(5)
     pdf.set_font(FONT_FAMILY, size=30)
-    pdf.cell(0, txt="Gelecek Tahmini")
-    pdf.ln(15)
-    pdf.set_font(FONT_FAMILY, size=13)
+    pdf.cell(0, txt="Gelecek Fiyat Tahmini")
+    pdf.ln(30)
+    pdf.set_font(FONT_FAMILY, size=20)
     pdf.multi_cell(
-        w=0, h=10, txt=f"Makine Ogrenimi modelimizin {FUTURE_DAYS} gun boyunca {ticker} ile ilgili tahmini")
-    # pdf.ln(3)
+        w=0, h=10, txt=f"Makine Ogrenimi modelimizin {FUTURE_DAYS} gun boyunca {ticker} ile ilgili tahmini:")
+    pdf.ln(10)
     with NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
         figs[7].savefig(tmpfile.name)
         name = tmpfile.name
@@ -663,5 +674,3 @@ if export_as_pdf:
     st.text("")
     
     
-    st.markdown("#### Yazar:")
-    pdf.cell(0, txt="Serkan Polat")
