@@ -14,8 +14,10 @@ from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
 
 
+st.set_page_config(
 
-
+    theme="light"  # Bu satır, light mode'u etkinleştirir
+)
 def main():
     st.title("Ana Sayfa")
     
@@ -324,6 +326,8 @@ plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
 figs.append(fig)
+
+
 
 
 st.text("")
