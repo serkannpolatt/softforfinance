@@ -17,7 +17,7 @@ from streamlit_option_menu import option_menu
 base="light"
 
 def main():
-    st.title("Ana Sayfa")
+
     
     # Sidebar oluştur
     st.sidebar.title("İletişim Bilgileri")
@@ -120,7 +120,7 @@ figs.append(fig)
 
 
 st.text("")
-st.markdown("Verilen grafikte, RSI > 70 aşırı alım hissesini ve RSI < 30 aşırı satım hissesini gösterir.")
+st.markdown("    Verilen grafikte, RSI > 70 aşırı alım hissesini ve RSI < 30 aşırı satım hissesini gösterir.")
 st.markdown("***")
 
 # Bollinger Bantları
@@ -383,7 +383,7 @@ prediction = reg.predict(x_tomm_scaled_reshaped)
 prediction = scaler.inverse_transform(prediction.reshape(1, -1))
 
 # Tahmini göster
-st.markdown(f"#### Yarının tahmini için: {ticker} {round(prediction[0][0], 2)}")
+st.markdown(f"#### Yarının tahmini için: {ticker} = {round(prediction[0][0], 2)}")
 
 
 
@@ -392,7 +392,7 @@ st.markdown("***")
 
 
 # Kullanıcıdan gelecek gün sayısı girişi (20'yi geçmemesi önerilir)
-FUTURE_DAYS = st.text_input('Gelecek gün sayısını girin (20yi geçmemesi önerilir)')
+FUTURE_DAYS = st.text_input("Gelecek gün sayısını girin (20'yi geçmemesi önerilir)")
 
 try:
     FUTURE_DAYS = int(FUTURE_DAYS)
@@ -428,8 +428,10 @@ predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
 
 
 
+
 print(len(close_prices))
 print(len(tot_prices))
+
 
 
 fig = plt.figure()
