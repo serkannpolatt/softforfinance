@@ -193,6 +193,7 @@ obv_sma = obv_df.rolling(NUM_OF_DAYS_2).mean()
 
 
 fig = plt.figure()
+
 plt.plot(on_balance_volumes, label='OBV')
 plt.plot(obv_sma, label=' OBV için Basit Hareketli Ortalama')
 plt.title("OBV (On Balance Volume)  Bakiye Hacmi", fontsize=17,color="black")
