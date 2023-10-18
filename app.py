@@ -17,16 +17,11 @@ from streamlit_option_menu import option_menu
 base="light"
 
 def main():
-
-    
-    # Sidebar oluştur
     st.sidebar.title("İletişim Bilgileri")
     st.sidebar.subheader("Yazar:")
-    
     st.sidebar.write("Serkan Polat")
 
-
-    # İletişim bilgilerini sidebar içinde görüntüle
+    # İletişim bilgilerini sidebar içinde görüntüledim
     st.sidebar.subheader("E-posta:")
     st.sidebar.write("itsonlydatahustle@gmail.com")
     st.sidebar.subheader("Github:")
@@ -36,9 +31,9 @@ def main():
     st.sidebar.subheader("Daha fazlası için:")
     st.sidebar.write("https://bento.me/serkan-polat")
 
-
 if __name__ == "__main__":
     main()
+
 
 figs=[]
 
@@ -47,22 +42,21 @@ st.markdown("""
 ### Tüm stok ihtiyaçlarınızı tek bir yerde bulun
 Hisse senedi hareketini daha iyi anlamak için sadece birkaç teknik gösterge sağlamakla kalmıyor, aynı zamanda gelecekteki fiyatı tahmin etmek için bir Sinir Ağ modelimiz var.""",unsafe_allow_html=True)
 
-
 # Kullanıcıdan hisse senedi simgesini al
 ticker = st.text_input("Hisse Senedi Göstergesi")
 
-# Eğer bir simge girilmemişse, varsayılan olarak "EREGL" olarak ayarla
+# Eğer bir simge girilmemişse, varsayılan olarak "EREGL" olarak ayarladım
 if ticker == "":
     ticker = "EREGL.IS"
 
 # Girilen simgeyi görüntüle
 st.write("Örnek Sembol Girişi:", ticker)
 
-# Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini al
+# Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
 df = si.get_data(ticker)
 df["date"] = df.index
 
-# Hisse DataFrame'inden gerekli verileri çıkar
+# Hisse DataFrame'inden gerekli verileri çıkardım
 open_prices = df['open']
 close_prices = df['close']
 volumes = df['volume']
@@ -72,7 +66,7 @@ dates = df['date']
 DATA_LEN = 300
 
 
-# Her veri sütunu için son DATA_LEN sayısı kadar veri noktasını al
+# Her veri sütunu için son DATA_LEN sayısı kadar veri noktasını aldım
 dates = dates[-DATA_LEN:].to_list()
 close_prices = close_prices[-DATA_LEN:].to_list()
 open_prices = open_prices[-DATA_LEN:].to_list()
@@ -80,12 +74,13 @@ volumes = volumes[-DATA_LEN:].to_list()
 high_prices = high_prices[-DATA_LEN:].to_list()
 low_prices = low_prices[-DATA_LEN:].to_list()
 
-# İleriki hesaplamalar için 'close' sütununu seç
+# İleriki hesaplamalar için 'close' sütununu seçtim
 close_for_calc = df['close'][-DATA_LEN:]
 
 
-
 st.text("");st.text("");st.text("")
+
+
 
 st.markdown("## Teknik Göstergeler")
 
@@ -103,10 +98,10 @@ st.markdown("***")
 
 
 
-
-# RSI
+# RSI 
 relative_strength_indexs = pta.rsi(close_for_calc, length=14)
 relative_strength_indexs = relative_strength_indexs.to_list()
+
 
 fig = plt.figure()
 plt.plot(relative_strength_indexs, label='RSI Değeri')
@@ -123,22 +118,23 @@ st.text("")
 st.markdown("    Verilen grafikte, RSI > 70 aşırı alım hissesini ve RSI < 30 aşırı satım hissesini gösterir.")
 st.markdown("***")
 
+
 # Bollinger Bantları
-# Kapanış fiyatlarının 5 günlük hareketli ortalamasını hesapla
+# Kapanış fiyatlarının 5 günlük hareketli ortalamasını hesapladım
 close_avg = close_for_calc.rolling(5).mean().to_list()
 
-# Kapanış fiyatlarının 5 günlük hareketli standart sapmasını hesapla
+# Kapanış fiyatlarının 5 günlük hareketli standart sapmasını hesapladım
 standard_deviations = close_for_calc.rolling(5).std().to_list()
 
 upper_bollinger_band = []
 lower_bollinger_band = []
 
-# Her veri noktası için üst ve alt Bollinger Bantlarını hesapla
+# Her veri noktası için üst ve alt Bollinger Bantlarını hesapladım
 for i in range(len(standard_deviations)):
-    # Üst sınırı, kapanış ortalaması artı iki kat standart sapma olarak hesapla
+    # Üst sınırı, kapanış ortalaması artı iki kat standart sapma olarak hesapladım
     upper_bound = close_avg[i] + (standard_deviations[i] * 2)
 
-    # Alt sınırı, kapanış ortalamasından iki kat standart sapma çıkartarak hesapla
+    # Alt sınırı, kapanış ortalamasından iki kat standart sapma çıkartarak hesapladım
     lower_bound = close_avg[i] - (standard_deviations[i] * 2)
 
     upper_bollinger_band.append(upper_bound)
@@ -158,20 +154,17 @@ plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
 figs.append(fig)
-
-
 st.markdown("***")
 
 
 
-
-#OBV
+# OBV 
 on_balance_volumes = []
 obv = 0
 
 on_balance_volumes.append(obv)
 
-# Her veri noktası için On-Balance Volume (OBV) değerini hesapla
+# Her veri noktası için On-Balance Volume (OBV) değerini hesapladım
 for i in range(1, len(volumes)):
     if close_prices[i] > close_prices[i - 1]:
         obv += volumes[i]
@@ -193,7 +186,6 @@ obv_sma = obv_df.rolling(NUM_OF_DAYS_2).mean()
 
 
 fig = plt.figure()
-
 plt.plot(on_balance_volumes, label='OBV')
 plt.plot(obv_sma, label=' OBV için Basit Hareketli Ortalama')
 plt.title("OBV (On Balance Volume)  Bakiye Hacmi", fontsize=17,color="black")
@@ -205,9 +197,6 @@ components.html(fig_html, height=500)
 figs.append(fig)
 
 st.markdown("***")
-
-
-
 
 
 # MACD
@@ -232,26 +221,27 @@ figs.append(fig)
 st.markdown("***")
 
 
+
 # Momentum
 MOMENTUM_PERIOD = 10
 
 momentum_values = []
 
-# Her veri noktası için momentum değerlerini hesapla
+# Her veri noktası için momentum değerlerini hesapladım
 for i in range(MOMENTUM_PERIOD, len(close_prices)):
     curr_close_price = close_prices[i]
     period_start_close_price = close_prices[i - MOMENTUM_PERIOD]
 
-    # Momentumu, mevcut kapanış fiyatı ile dönem başından itibaren fiyat arasındaki fark olarak hesapla
+    # Momentumu, mevcut kapanış fiyatı ile dönem başından itibaren fiyat arasındaki fark olarak hesapladım
     momentum_values.append(curr_close_price - period_start_close_price)
 
 momentum_sum = 0
 
-# Momentum değerlerinin toplamını hesapla
+# Momentum değerlerinin toplamını hesapladım
 for i in range(len(momentum_values)):
     momentum_sum += momentum_values[i]
 
-# Ortalama momentumu hesapla
+# Ortalama momentumu hesapladım
 avg_momentum = momentum_sum / len(momentum_values)
 
 fig = plt.figure()
@@ -266,18 +256,18 @@ figs.append(fig)
 
 
 
-pivot_points = []
 
-# Her veri noktası için pivot noktalarını hesapla
+pivot_points = []
+# Her veri noktası için pivot noktalarını hesapladım
 for i in range(len(close_for_calc)):
     if i == 0:
-        pivot_points.append(float("nan"))  # İlk pivot noktasını NaN olarak ayarla
+        pivot_points.append(float("nan"))  # İlk pivot noktasını NaN olarak ayarladım
     else:
         prev_high = high_prices[i - 1]
         prev_low = low_prices[i - 1]
         prev_close = close_prices[i - 1]
 
-        # Pivot noktasını önceki yüksek, düşük ve kapanış fiyatlarının ortalaması olarak hesapla
+        # Pivot noktasını önceki yüksek, düşük ve kapanış fiyatlarının ortalaması olarak hesapladım
         pivot_point = (prev_high + prev_low + prev_close) / 3
         pivot_points.append(pivot_point)
 
@@ -289,16 +279,16 @@ resistance_2 = []
 support_2 = []
 
 
-# Pivot noktalarına göre destek ve direnç seviyelerini hesapla
+# Pivot noktalarına göre destek ve direnç seviyelerini hesapladım
 for i in range(len(pivot_points)):
     if i == 0:
-        resistance_1.append(float("nan"))  # İlk direnç seviyesini NaN olarak ayarla
-        support_1.append(float("nan"))  # İlk destek seviyesini NaN olarak ayarla
+        resistance_1.append(float("nan"))  # İlk direnç seviyesini NaN olarak ayarladım
+        support_1.append(float("nan"))  # İlk destek seviyesini NaN olarak ayarladım
     else:
         prev_high = high_prices[i - 1]
         prev_low = low_prices[i - 1]
 
-        # Birinci direnç ve destek seviyelerini hesapla
+        # Birinci direnç ve destek seviyelerini hesapladım
         r1 = (2 * pivot_points[i]) - prev_low
         s1 = (2 * pivot_points[i]) - prev_high
 
@@ -328,15 +318,14 @@ figs.append(fig)
 
 
 
-
 st.text("")
 st.markdown("Destek ve dirençleri daha iyi görmek için lütfen grafiği yakınlaştırın.")
 st.markdown("***")
 
 
 
-st.markdown("## Gelecek Fiyat Tahminleri")
 
+st.markdown("## Gelecek Fiyat Tahminleri")
 
 # Veri kümesini hazırla
 dataset = close_prices
@@ -352,11 +341,11 @@ scaled_data = scaler.fit_transform(dataset)
 train_data = scaled_data[0:int(training), :]
 
 
-
-# Özellikleri ve etiketleri hazırla
+# Özellikleri ve etiketleri hazırladım
 x_train = []
 y_train = []
 prediction_days = 60
+
 
 for i in range(prediction_days, len(train_data)):
     x_train.append(train_data[i-prediction_days:i, 0])
@@ -365,31 +354,30 @@ for i in range(prediction_days, len(train_data)):
 x_train, y_train = np.array(x_train), np.array(y_train)
 x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]))
 
-# Doğrusal Regresyon modelini eğit
+
+
+# Doğrusal Regresyon modelini eğittim
 reg = LinearRegression().fit(x_train, y_train)
 
 x_tomm = close_prices[len(close_prices) - prediction_days:len(close_prices)]
 x_tomm = np.array(x_tomm)
 x_tomm_reshaped = x_tomm.reshape(-1, 1)
 
-# Yeniden şekillendirilmiş veriyi ölçeklendir
+# Yeniden şekillendirilmiş veriyi ölçeklendirdim
 x_tomm_scaled = scaler.transform(x_tomm_reshaped)
 
-# Ölçeklenmiş veriyi tekrar (1, n_features) şekline getir
+# Ölçeklenmiş veriyi tekrar (1, n_features) şekline getirdim
 x_tomm_scaled_reshaped = x_tomm_scaled.reshape(1, -1)
 
-# Tahmin yap
+# Tahmin yaptırdım
 prediction = reg.predict(x_tomm_scaled_reshaped)
 prediction = scaler.inverse_transform(prediction.reshape(1, -1))
 
-# Tahmini göster
+# Tahmini gösterttim
 st.markdown(f"#### Yarının tahmini için: {ticker} = {round(prediction[0][0], 2)}")
 
 
-
 st.markdown("***")
-
-
 
 # Kullanıcıdan gelecek gün sayısı girişi (20'yi geçmemesi önerilir)
 FUTURE_DAYS = st.text_input("Gelecek gün sayısını girin (20'yi geçmemesi önerilir)")
@@ -402,7 +390,7 @@ except:
 predicted_prices = []
 tot_prices = list(close_prices)
 
-# Belirtilen gün sayısı için gelecekteki fiyatları tahmin et
+# Belirtilen gün sayısı için gelecekteki fiyatları tahmin ettirdim
 for i in range(FUTURE_DAYS):
     x_prices = tot_prices[len(tot_prices) - prediction_days: len(tot_prices)]
     x_prices_reshaped = np.array(x_prices).reshape(1, -1)
@@ -426,11 +414,9 @@ predicted_prices = np.array(predicted_prices)
 tot_prices = np.reshape(tot_prices, (tot_prices.shape[0]))
 predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
 
-
-
-
 print(len(close_prices))
 print(len(tot_prices))
+
 
 
 
@@ -444,6 +430,8 @@ plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
 figs.append(fig)
+
+
 
 
 # PDF İndirme İşlevselliği
