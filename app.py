@@ -115,7 +115,7 @@ figs.append(fig)
 
 
 st.text("")
-st.markdown("    Verilen grafikte, RSI > 70 aşırı alım hissesini ve RSI < 30 aşırı satım hissesini gösterir.")
+st.markdown("Verilen grafikte, RSI > 70 aşırı alım hissesini ve RSI < 30 aşırı satım hissesini gösterir.")
 st.markdown("***")
 
 
