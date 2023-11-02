@@ -1,9 +1,0 @@
-pandas
-pandas_datareader
-mpl_finance
-mplfinance
-quandl
-bs4
-numpy
-requests
-yfinance
