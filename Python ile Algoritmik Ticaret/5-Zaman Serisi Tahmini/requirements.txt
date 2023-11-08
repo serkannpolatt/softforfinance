@@ -1,0 +1,11 @@
+pandas
+yfinance
+mplfinance
+pandas_ta
+numpy
+statsmodels
+matplotlib
+scipy
+beautifulsoup4
+pandas_datareader
+requests
