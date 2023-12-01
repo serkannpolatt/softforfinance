@@ -1,0 +1,135 @@
++--+------------------------+-------------------------------------------------+
+|# | SÜTUN                  |AÇIKLAMA                                         |
++--+------------------------+-------------------------------------------------+
+|1 |İŞLEM TARİHİ           |İşlem gününün tarihi                            |
++--+------------------------+-------------------------------------------------+
+|2 |ENSTRÜMAN SERİ KODU     |Serisi kodu bu alanda bulunur                    |
+|  |                        |bu alandaki enstrüman kodunda                   |
+|                        |bulunan enstrümanın serisini verir              |
++--+------------------------+-------------------------------------------------+
+|3 |ENSTRÜMAN ADI           |Uzun kimlik                                       |
++--+------------------------+-------------------------------------------------+
+|4 |PAZAR SEGMENTİ          |BIST Stars                              Z        |
+|  |                        |Toplu ve Yapılandırılmış Ürünler        K        |
+|  |                        |BIST Gelişen Şirketler                 G        |
+|  |                        |Piyasa Öncesi İşlem Platformu         S        |
+|  |                        |İzleme Listesi                         W        |
+|  |                        |BIST Ana Piyasa                        N        |
+|  |                        |BIST Alt Piyasa                        T        |
++--+------------------------+-------------------------------------------------+
+|5 |PAZAR                   |Pay – Pay Ana Pazarı (MainSptEQ)       MSPOT     |
+|  |                        |Pay – Birincil Piyasa (Prim Mkt)       PMRKT     |
+|  |                        |Pay – Temerrüt Pazarı (Buyin Mk)       BUYIN     |
+|  |                        |Pay – Birincil Tek Trf (PrmMktOneS)    PMOSA     |
++--+------------------------+-------------------------------------------------+
+|6 |ENSTRÜMAN TÜRÜ          |örneğin: BUYINEQT, MSPOTECW, MSPOTRGT, MSPOTETF vb.|
+|  |                        |ilgili enstrümanın türü hakkında bilgi verir      |
++--+------------------------+-------------------------------------------------+
+|7 |ENSTRÜMAN SINIFI         |örneğin: BUYINEQTGARAN, MSPOTEQTGARAN vb.          |
+|  |                        |ilgili enstrümanın hangi sınıfa ait olduğu hakkında|
+|  |                        |bilgi verir                                       |
++--+------------------------+-------------------------------------------------+
+|8 |PAZAR YAPISI            |Kullanılamıyor     0                            |
+|  |                        |Kullanılabilir       1                            |
++--+------------------------+-------------------------------------------------+
+|9 |BIST 100 ENDEKSİ        |Kullanılamıyor     0                            |
+|  |                        |Kullanılabilir       1                            |
++--+------------------------+-------------------------------------------------+
+|10|BIST 30 ENDEKSİ         |Kullanılamıyor     0                            |
+|  |                        |Kullanılabilir       1                            |
++--+------------------------+-------------------------------------------------+
+|11|BRÜT MUTABAKAT          |1: Brüt Mutabakat                                |
++--+------------------------+-------------------------------------------------+
+|12|ASKIDA                  |Askıda Değil       0                            |
+|  |                        |Askıda             1                            |
++--+------------------------+-------------------------------------------------+
+|13|AÇILIŞ FİYATI           |Günün ilk fiyatı                                |
++--+------------------------+-------------------------------------------------+
+|14|AÇILIŞ SEANS FİYATI     |Açılış seansında gerçekleşen fiyat              |
++--+------------------------+-------------------------------------------------+
+|15|EN DÜŞÜK FİYAT          |Günün en düşük fiyatı                           |
++--+------------------------+-------------------------------------------------+
+|16|EN YÜKSEK FİYAT         |Günün en yüksek fiyatı                          |
++--+------------------------+-------------------------------------------------+
+|17|KAPANIŞ FİYATI           |Günün son fiyatı                                |
++--+------------------------+-------------------------------------------------+
+|18|KAPANIŞ SEANS FİYATI     |Kapanış seansında gerçekleşen fiyat             |
++--+------------------------+-------------------------------------------------+
+|19|ÖNCEKİ KAPANIŞA         |Kapanış fiyatının önceki işlem gününe göre       |
+|  |GÖRE DEĞİŞİM (%)        |değişimi                                        |
++--+------------------------+-------------------------------------------------+
+|20|KALAN ALIŞ              |En iyi alış fiyatı                              |
++--+------------------------+-------------------------------------------------+
+|21|KALAN SATIŞ             |En iyi teklif fiyatı                            |
++--+------------------------+-------------------------------------------------+
+|22|VWAP                    |Günlük hacme göre ağırlıklı ortalama fiyat     |
++--+------------------------+-------------------------------------------------+
+|23|TOPLAM İŞLEM DEĞERİ     |İlgili menkul kıymetin toplam işlem değeri      |
++--+------------------------+-------------------------------------------------+
+|24|TOPLAM İŞLEM HACMİ      |İlgili menkul kıymetin toplam işlem hacmi      |
++--+------------------------+-------------------------------------------------+
+|25|TOPLAM İŞLEM SAYISI     |İlgili menkul kıymetin toplam sözleşme sayısı |
++--+------------------------+-------------------------------------------------+
+|26|REFERANS FİYAT           |Borsa tarafından duyurulan fiyat, sınırlar için |
+|  |                        |temel değildir                                  |
++--+------------------------+-------------------------------------------------+
+|27|AÇILIŞ SEANSINDA İŞLEM |Açılış seansında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN İŞLEM DEĞERİ     |toplam işlem değeri                             |
++--+------------------------+-------------------------------------------------+
+|28|AÇILIŞ SEANSINDA İŞLEM |Açılış seansında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN İŞLEM HACMİ      |toplam işlem hacmi                              |
++--+------------------------+-------------------------------------------------+
+|29|AÇILIŞ SEANSINDA İŞLEM |Açılış seansında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN SÖZLEŞME SAYISI   |toplam sözleşme sayısı                          |
++--+------------------------+-------------------------------------------------+
+|30|KAPANIŞ SEANSINDA İŞLEM|Kapanış seansında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN İŞLEM DEĞERİ     |toplam işlem değeri                             |
++--+------------------------+-------------------------------------------------+
+|31|KAPANIŞ SEANSINDA İŞLEM|Kapanış seansında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN İŞLEM HACMİ      |toplam işlem hacmi                              |
++--+------------------------+-------------------------------------------------+
+|32|KAPANIŞ SEANSINDA İŞLEM|Kapanış seansında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN SÖZLEŞME SAYISI   |toplam sözleşme sayısı                          |
++--+------------------------+-------------------------------------------------+
+|33|KAPANIŞ FİYATINDA İŞLEM |Kapanış fiyatında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN İŞLEM DEĞERİ     |toplam işlem değeri                             |
++--+------------------------+-------------------------------------------------+
+|34|KAPANIŞ FİYATINDA İŞLEM |Kapanış fiyatında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN İŞLEM HACMİ      |toplam işlem hacmi                              |
++--+------------------------+-------------------------------------------------+
+|35|KAPANIŞ FİYATINDA İŞLEM |Kapanış fiyatında gerçekleşen ilgili menkul kıymetin|
+|  |GÖREN SÖZLEŞME SAYISI   |toplam sözleşme sayısı                          |
++--+------------------------+-------------------------------------------------+
+|36|EN DÜŞÜK KISA SATIŞ     |Kısa satış emrinden gerçekleşen işlemlerin en düşük|
+|  |FİYATI                  |fiyatı                                           |
++--+------------------------+-------------------------------------------------+
+|37|EN YÜKSEK KISA SATIŞ    |Kısa satış emrinden gerçekleşen işlemlerin en yüksek|
+|  |FİYATI                  |fiyatı                                           |
++--+------------------------+-------------------------------------------------+
+|38|KISA SATIŞ VWAP         |Kısa satış emrinden gerçekleşen işlemlerin VWAP'i  |
++--+------------------------+-------------------------------------------------+
+|39|KISA SATIŞ İŞLEM DEĞERİ |Kısa satış işlemlerinin toplam işlem değeri        |
++--+------------------------+-------------------------------------------------+
+|40|KISA SATIŞ İŞLEM HACMİ  |Kısa satış işlemlerinin toplam işlem hacmi        |
++--+------------------------+-------------------------------------------------+
+|41|KISA SATIŞ SÖZLEŞME     |Kısa satış işlemlerinin toplam sözleşme sayısı   |
+|  |SAYISI                  |                                                 |
++--+------------------------+-------------------------------------------------+
+|42|EN DÜŞÜK TİCARET RAPORU |İşlem günü içinde gerçekleşen işlemlerin en düşük|
+|  |FİYATI                  |ticaret raporu fiyatı                           |
++--+------------------------+-------------------------------------------------+
+|43|EN YÜKSEK TİCARET RAPORU|İşlem günü içinde gerçekleşen işlemlerin en yüksek|
+|  |FİYATI                  |ticaret raporu fiyatı                           |
++--+------------------------+-------------------------------------------------+
+|44|TİCARET RAPORU VWAP     |İşlem günü içinde gerçekleşen ticaret raporlarının|
+|  |                        |VWAP'i                                          |
++--+------------------------+-------------------------------------------------+
+|45|TİCARET RAPORU İŞLEM   |İşlem günü içinde gerçekleşen ticaret raporlarının|
+|  |DEĞERİ                  |toplam işlem değeri                             |
++--+------------------------+-------------------------------------------------+
+|46|TİCARET RAPORU İŞLEM   |İşlem günü içinde gerçekleşen ticaret raporlarının|
+|  |HACMİ                   |toplam işlem hacmi                              |
++--+------------------------+-------------------------------------------------+
+|47|TİCARET RAPORU SAYISI   |İşlem günü içinde gerçekleşen ticaret raporlarının|
+|                        |toplam sayısı                                   |
++--+------------------------+-------------------------------------------------+
