@@ -3,7 +3,7 @@
 ## Türkçe
 
 ### Amaç
-Bu kodun amacı, belirli bir hisse senedinin geçmiş verilerini analiz edebilen ve görselleştirebilen bir hisse senedi analizörü uygulaması sunmaktır. Lineer regresyon kullanarak çeşitli teknik göstergeler ve tahminler sunarak kullanıcıların bilinçli yatırım kararları almasına yardımcı olur.
+Bu kodun amacı, belirli bir hisse senedinin geçmiş verilerini analiz edebilen ve görselleştirebilen bir hisse senedi analizörü uygulaması sunmaktır. Lineer regresyon,LSTM gibi çeşitli modeller kullanarak çeşitli teknik göstergeler ve tahminler sunarak kullanıcıların bilinçli yatırım kararları almasına yardımcı olur.
 
 ### İşlevsellik
 Bu Python kodu, hisse senedi analizörü uygulaması için kullanıcı dostu bir arayüz oluşturmak için Streamlit kütüphanesini kullanır. Yahoo Finance API'den hisse senedi verilerini alır ve görsel olarak çekici ve etkileşimli bir şekilde sunar. Uygulama aşağıdaki özellikleri sunar:
