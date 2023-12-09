@@ -23,7 +23,7 @@ Hisse senedi analizörü uygulamasını kullanmak için:
 
 - Gerekli bağımlılıkları yüklemek için şu komutu çalıştırın:
 
-      pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf
+      pip install -r requirements.txt
 
 - Kodu çalıştırmak için şu komutu çalıştırın:
   
@@ -112,7 +112,7 @@ To use the stock analyzer application:
 
 - Install the necessary dependencies by running the command:
 
-      pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf
+      pip install -r requirements.txt
 
 - Execute the code by running:
 
