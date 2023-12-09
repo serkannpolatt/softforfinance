@@ -1,68 +1,3 @@
-## English
-
-### Purpose
-The purpose of this code is to provide a stock analyzer application that can analyze and visualize the historical data of a given stock. It offers various technical indicators and predictions using linear regression to assist users in making informed investment decisions.
-
-### Functionality
-This Python code utilizes the Streamlit library to create a user-friendly interface for the stock analyzer application. It retrieves stock data from the Yahoo Finance API and presents it in a visually appealing and interactive manner. The application offers the following features:
-
-- **Display of stock data:** The application retrieves and displays the historical stock data for a given stock ticker symbol.
-
-- **Technical indicators:** Users can explore various technical indicators such as Close Prices, Relative Strength Index (RSI), Bollinger Bands, On-Balance Volume (OBV), Moving Average Convergence Divergence (MACD), Momentum, and Support/Resistance. These indicators provide insights into the stock's price trends, momentum, and potential support and resistance levels.
-
-- **Linear Regression Predictions:** The application utilizes linear regression to generate predictions for future stock prices based on historical data.
-
-- **Chart zooming:** Users can zoom in on the charts to examine the stock's support and resistance levels more closely.
-
-- **Indicator explanations:** The application provides explanations and descriptions for each technical indicator to help users understand their significance and interpretation.
-
-### Table of Contents
-
-1. **Data Retrieval and Preprocessing**: In this section, we retrieve historical stock price data using the `yfinance` library, preprocess the data, and extract relevant features such as Open, Close, High, Low prices, and trading volume.
-
-2. **Data Visualization**: We visualize the historical stock price data using Matplotlib. This includes plotting open and close prices, moving averages, Bollinger Bands, and other technical indicators.
-
-3. **Machine Learning Models**:
-   - **Linear Regression**: We implement a Linear Regression model to predict stock prices based on historical data.
-   - **LSTM Model**: We create a Long Short-Term Memory (LSTM) model for time series prediction.
-   - **Transformer Model**: We build a Transformer model for stock price prediction using the Transformer architecture.
-
-4. **Model Evaluation and Comparison**: We evaluate the performance of the different models using metrics such as Mean Squared Error (MSE) and visualize the predictions.
-
-5. **Volatility Analysis**: We calculate and analyze the volatility of the stock prices.
-
-6. **Trading Signals**: We generate buy and sell signals based on moving average crossovers.
-
-7. **Future Price Prediction**: We use the trained models to make future price predictions and visualize the forecasted prices.
-
-8. **Noise Simulation**: We add noise to the predicted prices to simulate more realistic scenarios.
-
-
-### Usage
-To use the stock analyzer application:
-
-- Install the necessary dependencies by running the command:
-
-      pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf
-
-- Execute the code by running:
-
-      streamlit run stock_analyzer.py
-
-- The Streamlit server will start, and the application will open in your browser.
-
-- Enter the desired stock ticker symbol in the text input field. If no ticker is entered, the default ticker `GOOG` will be used.
-
-- The application will retrieve the stock data and display the entered ticker. You can then explore the various technical indicators, predictions, and charts.
-
-### Contributing
-If you wish to contribute to this project, feel free to fork the repository and make any desired changes. You can also contribute by opening issues or submitting pull requests for improvements or bug fixes.
-
-### License
-This code is licensed under the MIT License. You are free to use, modify, and distribute it in accordance with the terms of the license.
-
-### Disclaimer
-Please note that this code and the information provided by the application are intended for educational and informational purposes only. They should not be considered as financial advice. Always conduct your own research and consult with a financial professional before making any investment decisions.
 
 
 ## Türkçe
@@ -130,3 +65,70 @@ Bu kod MIT Lisansı altında lisanslanmıştır. Lisansın şartlarına uygun ol
 
 ### Feragatname
 Lütfen bu kodu ve uygulama tarafından sağlanan bilgileri yalnızca eğitim ve bilgilendirme amaçlı olarak kullanın. Finansal tavsiye olarak değerlendirilmemelidir. Her zaman kendi araştırmanızı yapın ve yatırım kararları vermeden önce bir finansal uzmana danışın.
+
+
+## English
+
+### Purpose
+The purpose of this code is to provide a stock analyzer application that can analyze and visualize the historical data of a given stock. It offers various technical indicators and predictions using linear regression to assist users in making informed investment decisions.
+
+### Functionality
+This Python code utilizes the Streamlit library to create a user-friendly interface for the stock analyzer application. It retrieves stock data from the Yahoo Finance API and presents it in a visually appealing and interactive manner. The application offers the following features:
+
+- **Display of stock data:** The application retrieves and displays the historical stock data for a given stock ticker symbol.
+
+- **Technical indicators:** Users can explore various technical indicators such as Close Prices, Relative Strength Index (RSI), Bollinger Bands, On-Balance Volume (OBV), Moving Average Convergence Divergence (MACD), Momentum, and Support/Resistance. These indicators provide insights into the stock's price trends, momentum, and potential support and resistance levels.
+
+- **Linear Regression Predictions:** The application utilizes linear regression to generate predictions for future stock prices based on historical data.
+
+- **Chart zooming:** Users can zoom in on the charts to examine the stock's support and resistance levels more closely.
+
+- **Indicator explanations:** The application provides explanations and descriptions for each technical indicator to help users understand their significance and interpretation.
+
+### Table of Contents
+
+1. **Data Retrieval and Preprocessing**: In this section, we retrieve historical stock price data using the `yfinance` library, preprocess the data, and extract relevant features such as Open, Close, High, Low prices, and trading volume.
+
+2. **Data Visualization**: We visualize the historical stock price data using Matplotlib. This includes plotting open and close prices, moving averages, Bollinger Bands, and other technical indicators.
+
+3. **Machine Learning Models**:
+   - **Linear Regression**: We implement a Linear Regression model to predict stock prices based on historical data.
+   - **LSTM Model**: We create a Long Short-Term Memory (LSTM) model for time series prediction.
+   - **Transformer Model**: We build a Transformer model for stock price prediction using the Transformer architecture.
+
+4. **Model Evaluation and Comparison**: We evaluate the performance of the different models using metrics such as Mean Squared Error (MSE) and visualize the predictions.
+
+5. **Volatility Analysis**: We calculate and analyze the volatility of the stock prices.
+
+6. **Trading Signals**: We generate buy and sell signals based on moving average crossovers.
+
+7. **Future Price Prediction**: We use the trained models to make future price predictions and visualize the forecasted prices.
+
+8. **Noise Simulation**: We add noise to the predicted prices to simulate more realistic scenarios.
+
+
+### Usage
+To use the stock analyzer application:
+
+- Install the necessary dependencies by running the command:
+
+      pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf
+
+- Execute the code by running:
+
+      streamlit run stock_analyzer.py
+
+- The Streamlit server will start, and the application will open in your browser.
+
+- Enter the desired stock ticker symbol in the text input field. If no ticker is entered, the default ticker `GOOG` will be used.
+
+- The application will retrieve the stock data and display the entered ticker. You can then explore the various technical indicators, predictions, and charts.
+
+### Contributing
+If you wish to contribute to this project, feel free to fork the repository and make any desired changes. You can also contribute by opening issues or submitting pull requests for improvements or bug fixes.
+
+### License
+This code is licensed under the MIT License. You are free to use, modify, and distribute it in accordance with the terms of the license.
+
+### Disclaimer
+Please note that this code and the information provided by the application are intended for educational and informational purposes only. They should not be considered as financial advice. Always conduct your own research and consult with a financial professional before making any investment decisions.
