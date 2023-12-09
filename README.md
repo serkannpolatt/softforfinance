@@ -27,7 +27,7 @@ Hisse senedi analizörü uygulamasını kullanmak için:
 
 - Kodu çalıştırmak için şu komutu çalıştırın:
   
-      streamlit run stock_analyzer.py
+      streamlit run app.py
 
 - Streamlit sunucusu başlayacak ve uygulama tarayıcınızda açılacaktır.
 
@@ -116,7 +116,7 @@ To use the stock analyzer application:
 
 - Execute the code by running:
 
-      streamlit run stock_analyzer.py
+      streamlit run app.py
 
 - The Streamlit server will start, and the application will open in your browser.
 
