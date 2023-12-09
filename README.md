@@ -1,3 +1,72 @@
+
+
+## Türkçe
+
+### Amaç
+Bu kodun amacı, belirli bir hisse senedinin geçmiş verilerini analiz edebilen ve görselleştirebilen bir hisse senedi analizörü uygulaması sunmaktır. Lineer regresyon,LSTM gibi çeşitli modeller kullanarak çeşitli teknik göstergeler ve tahminler sunarak kullanıcıların bilinçli yatırım kararları almasına yardımcı olur.
+
+### İşlevsellik
+Bu Python kodu, hisse senedi analizörü uygulaması için kullanıcı dostu bir arayüz oluşturmak için Streamlit kütüphanesini kullanır. Yahoo Finance API'den hisse senedi verilerini alır ve görsel olarak çekici ve etkileşimli bir şekilde sunar. Uygulama aşağıdaki özellikleri sunar:
+
+- **Hisse senedi verilerinin görüntülenmesi:** Uygulama, belirli bir hisse senedi sembolü için geçmiş hisse senedi verilerini alır ve görüntüler.
+
+- **Teknik göstergeler:** Kullanıcılar Kapanış Fiyatları, Göreceli Güç Endeksi (RSI), Bollinger Bantları, On-Balance Volume (OBV), Hareketli Ortalama Yakınsama Diverjansı (MACD), Momentum ve Destek/Direnç gibi çeşitli teknik göstergeleri inceleyebilir. Bu göstergeler, hisse senedinin fiyat trendleri, momentumu ve potansiyel destek ve direnç seviyeleri hakkında bilgi sağlar.
+
+- **Lineer Regresyon Tahminleri:** Uygulama, geçmiş verilere dayanarak gelecekteki hisse senedi fiyatları için tahminler oluşturmak için lineer regresyon kullanır.
+
+- **Grafik yakınlaştırma:** Kullanıcılar grafikleri yakınlaştırarak hisse senedinin destek ve direnç seviyelerini daha yakından inceleyebilir.
+
+- **Gösterge açıklamaları:** Uygulama, her teknik gösterge için açıklamalar ve tanımlamalar sunar, böylece kullanıcılar bunların önemini ve yorumunu anlamalarına yardımcı olur.
+
+### Kullanım
+Hisse senedi analizörü uygulamasını kullanmak için:
+
+- Gerekli bağımlılıkları yüklemek için şu komutu çalıştırın:
+
+      pip install -r requirements.txt
+
+- Kodu çalıştırmak için şu komutu çalıştırın:
+  
+      streamlit run app.py
+
+- Streamlit sunucusu başlayacak ve uygulama tarayıcınızda açılacaktır.
+
+- Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak `GOOG` kullanılacaktır.
+
+- Uygulama hisse senedi verilerini alacak ve girilen sembolü görüntüleyecektir. Ardından çeşitli teknik göstergeleri, tahminleri ve grafikleri keşfedebilirsiniz.
+
+### İçindekiler
+
+1. **Veri Alma ve Ön İşleme**: Bu bölümde, "yfinance" kütüphanesini kullanarak geçmiş hisse senedi fiyat verilerini alıyoruz, verileri ön işliyoruz ve Açılış, Kapanış, Yüksek, Düşük fiyatlar ve işlem hacmi gibi ilgili özellikleri çıkarıyoruz. .
+
+2. **Veri Görselleştirme**: Geçmiş hisse senedi fiyat verilerini Matplotlib kullanarak görselleştiriyoruz. Buna açılış ve kapanış fiyatlarının, hareketli ortalamaların, Bollinger Bantlarının ve diğer teknik göstergelerin çizilmesi de dahildir.
+
+3. **Makine Öğrenimi Modelleri**:
+   - **Doğrusal Regresyon**: Hisse senedi fiyatlarını geçmiş verilere dayanarak tahmin etmek için Doğrusal Regresyon modelini uyguluyoruz.
+   - **LSTM Modeli**: Zaman serisi tahmini için Uzun Kısa Süreli Bellek (LSTM) modeli oluşturuyoruz.
+   - **Transformer Modeli**: Transformer mimarisini kullanarak hisse senedi fiyat tahmini için Transformer modeli oluşturuyoruz.
+
+4. **Model Değerlendirme ve Karşılaştırma**: Ortalama Karesel Hata (MSE) gibi ölçümleri kullanarak farklı modellerin performansını değerlendiriyor ve tahminleri görselleştiriyoruz.
+
+5. **Volatilite Analizi**: Hisse senedi fiyatlarının oynaklığını hesaplıyor ve analiz ediyoruz.
+
+6. **Ticaret Sinyalleri**: Hareketli ortalama geçişlere dayalı olarak alım ve satım sinyalleri üretiriz.
+
+7. **Gelecekteki Fiyat Tahmini**: Gelecekteki fiyat tahminleri yapmak ve tahmin edilen fiyatları görselleştirmek için eğitilmiş modelleri kullanıyoruz.
+
+8. **Gürültü Simülasyonu**: Daha gerçekçi senaryoları simüle etmek için tahmin edilen fiyatlara gürültü ekliyoruz.
+
+
+### Katkıda Bulunma
+Bu projeye katkıda bulunmak isterseniz, depoyu çatallayabilir ve istediğiniz değişiklikleri yapabilirsiniz. Ayrıca, iyileştirmeler veya hata düzeltmeleri için sorunları açabilir veya birleştirme istekleri gönderebilirsiniz.
+
+### Lisans
+Bu kod MIT Lisansı altında lisanslanmıştır. Lisansın şartlarına uygun olarak özgürce kullanabilir, değiştirebilir ve dağıtabilirsiniz.
+
+### Feragatname
+Lütfen bu kodu ve uygulama tarafından sağlanan bilgileri yalnızca eğitim ve bilgilendirme amaçlı olarak kullanın. Finansal tavsiye olarak değerlendirilmemelidir. Her zaman kendi araştırmanızı yapın ve yatırım kararları vermeden önce bir finansal uzmana danışın.
+
+
 ## English
 
 ### Purpose
@@ -43,11 +112,11 @@ To use the stock analyzer application:
 
 - Install the necessary dependencies by running the command:
 
-      pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf
+      pip install -r requirements.txt
 
 - Execute the code by running:
 
-      streamlit run stock_analyzer.py
+      streamlit run app.py
 
 - The Streamlit server will start, and the application will open in your browser.
 
@@ -63,70 +132,3 @@ This code is licensed under the MIT License. You are free to use, modify, and di
 
 ### Disclaimer
 Please note that this code and the information provided by the application are intended for educational and informational purposes only. They should not be considered as financial advice. Always conduct your own research and consult with a financial professional before making any investment decisions.
-
-
-## Türkçe
-
-### Amaç
-Bu kodun amacı, belirli bir hisse senedinin geçmiş verilerini analiz edebilen ve görselleştirebilen bir hisse senedi analizörü uygulaması sunmaktır. Lineer regresyon kullanarak çeşitli teknik göstergeler ve tahminler sunarak kullanıcıların bilinçli yatırım kararları almasına yardımcı olur.
-
-### İşlevsellik
-Bu Python kodu, hisse senedi analizörü uygulaması için kullanıcı dostu bir arayüz oluşturmak için Streamlit kütüphanesini kullanır. Yahoo Finance API'den hisse senedi verilerini alır ve görsel olarak çekici ve etkileşimli bir şekilde sunar. Uygulama aşağıdaki özellikleri sunar:
-
-- **Hisse senedi verilerinin görüntülenmesi:** Uygulama, belirli bir hisse senedi sembolü için geçmiş hisse senedi verilerini alır ve görüntüler.
-
-- **Teknik göstergeler:** Kullanıcılar Kapanış Fiyatları, Göreceli Güç Endeksi (RSI), Bollinger Bantları, On-Balance Volume (OBV), Hareketli Ortalama Yakınsama Diverjansı (MACD), Momentum ve Destek/Direnç gibi çeşitli teknik göstergeleri inceleyebilir. Bu göstergeler, hisse senedinin fiyat trendleri, momentumu ve potansiyel destek ve direnç seviyeleri hakkında bilgi sağlar.
-
-- **Lineer Regresyon Tahminleri:** Uygulama, geçmiş verilere dayanarak gelecekteki hisse senedi fiyatları için tahminler oluşturmak için lineer regresyon kullanır.
-
-- **Grafik yakınlaştırma:** Kullanıcılar grafikleri yakınlaştırarak hisse senedinin destek ve direnç seviyelerini daha yakından inceleyebilir.
-
-- **Gösterge açıklamaları:** Uygulama, her teknik gösterge için açıklamalar ve tanımlamalar sunar, böylece kullanıcılar bunların önemini ve yorumunu anlamalarına yardımcı olur.
-
-### Kullanım
-Hisse senedi analizörü uygulamasını kullanmak için:
-
-- Gerekli bağımlılıkları yüklemek için şu komutu çalıştırın:
-
-      pip install streamlit numpy pandas yahoo_fin matplotlib mpld3 pandas_ta sklearn fpdf
-
-- Kodu çalıştırmak için şu komutu çalıştırın:
-  
-      streamlit run stock_analyzer.py
-
-- Streamlit sunucusu başlayacak ve uygulama tarayıcınızda açılacaktır.
-
-- Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak `GOOG` kullanılacaktır.
-
-- Uygulama hisse senedi verilerini alacak ve girilen sembolü görüntüleyecektir. Ardından çeşitli teknik göstergeleri, tahminleri ve grafikleri keşfedebilirsiniz.
-
-### İçindekiler
-
-1. **Veri Alma ve Ön İşleme**: Bu bölümde, "yfinance" kütüphanesini kullanarak geçmiş hisse senedi fiyat verilerini alıyoruz, verileri ön işliyoruz ve Açılış, Kapanış, Yüksek, Düşük fiyatlar ve işlem hacmi gibi ilgili özellikleri çıkarıyoruz. .
-
-2. **Veri Görselleştirme**: Geçmiş hisse senedi fiyat verilerini Matplotlib kullanarak görselleştiriyoruz. Buna açılış ve kapanış fiyatlarının, hareketli ortalamaların, Bollinger Bantlarının ve diğer teknik göstergelerin çizilmesi de dahildir.
-
-3. **Makine Öğrenimi Modelleri**:
-   - **Doğrusal Regresyon**: Hisse senedi fiyatlarını geçmiş verilere dayanarak tahmin etmek için Doğrusal Regresyon modelini uyguluyoruz.
-   - **LSTM Modeli**: Zaman serisi tahmini için Uzun Kısa Süreli Bellek (LSTM) modeli oluşturuyoruz.
-   - **Transformer Modeli**: Transformer mimarisini kullanarak hisse senedi fiyat tahmini için Transformer modeli oluşturuyoruz.
-
-4. **Model Değerlendirme ve Karşılaştırma**: Ortalama Karesel Hata (MSE) gibi ölçümleri kullanarak farklı modellerin performansını değerlendiriyor ve tahminleri görselleştiriyoruz.
-
-5. **Volatilite Analizi**: Hisse senedi fiyatlarının oynaklığını hesaplıyor ve analiz ediyoruz.
-
-6. **Ticaret Sinyalleri**: Hareketli ortalama geçişlere dayalı olarak alım ve satım sinyalleri üretiriz.
-
-7. **Gelecekteki Fiyat Tahmini**: Gelecekteki fiyat tahminleri yapmak ve tahmin edilen fiyatları görselleştirmek için eğitilmiş modelleri kullanıyoruz.
-
-8. **Gürültü Simülasyonu**: Daha gerçekçi senaryoları simüle etmek için tahmin edilen fiyatlara gürültü ekliyoruz.
-
-
-### Katkıda Bulunma
-Bu projeye katkıda bulunmak isterseniz, depoyu çatallayabilir ve istediğiniz değişiklikleri yapabilirsiniz. Ayrıca, iyileştirmeler veya hata düzeltmeleri için sorunları açabilir veya birleştirme istekleri gönderebilirsiniz.
-
-### Lisans
-Bu kod MIT Lisansı altında lisanslanmıştır. Lisansın şartlarına uygun olarak özgürce kullanabilir, değiştirebilir ve dağıtabilirsiniz.
-
-### Feragatname
-Lütfen bu kodu ve uygulama tarafından sağlanan bilgileri yalnızca eğitim ve bilgilendirme amaçlı olarak kullanın. Finansal tavsiye olarak değerlendirilmemelidir. Her zaman kendi araştırmanızı yapın ve yatırım kararları vermeden önce bir finansal uzmana danışın.
