@@ -49,7 +49,7 @@ Proje, aşağıdaki teknik indikatörleri içermektedir:
 
 2. Jupyter Notebook'u başlatın ve projenin bulunduğu dizine gidin.
 
-3. "calculated_indicators.ipynb" adlı Jupyter Notebook dosyasını açın.
+3. "main.ipynb" adlı Jupyter Notebook dosyasını açın.
 
 4. Projeyi çalıştırın ve çeşitli indikatörlerin nasıl hesaplandığını gözlemleyin.
 
@@ -122,7 +122,7 @@ The project includes the following technical indicators:
 
 2. Start Jupyter Notebook and navigate to the directory where the project is located.
 
-3. Open the Jupyter Notebook file named "calculated_indicators.ipynb."
+3. Open the Jupyter Notebook file named "main.ipynb"
 
 4. Run the project and observe how various indicators are calculated.
 
