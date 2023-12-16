@@ -132,3 +132,5 @@ This code is licensed under the MIT License. You are free to use, modify, and di
 
 ### Disclaimer
 Please note that this code and the information provided by the application are intended for educational and informational purposes only. They should not be considered as financial advice. Always conduct your own research and consult with a financial professional before making any investment decisions.
+
+![699e4762225981 5a89af14d87a9](https://github.com/serkannpolatt/DATA-SCIENCE-FOR-FINANCE/assets/92849974/00a3e488-249f-4126-9997-16554e87daf6)
