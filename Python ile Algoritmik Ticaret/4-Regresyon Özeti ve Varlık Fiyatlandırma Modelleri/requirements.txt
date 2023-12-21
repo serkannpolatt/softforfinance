@@ -6,6 +6,6 @@ numpy==1.22
 beautifulsoup4==4.10.0
 statsmodels==0.12.2
 matplotlib==3.4.3
-scipy==1.7.3
+scipy==1.10.0
 pandas-datareader==0.10.0
 requests==2.26.0
