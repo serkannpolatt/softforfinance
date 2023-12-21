@@ -2,7 +2,7 @@ pandas==1.3.3
 yfinance==0.1.65
 mplfinance==0.12.7a7
 pandas-ta==0.2.0
-numpy==1.21.2
+numpy==1.22
 beautifulsoup4==4.10.0
 statsmodels==0.12.2
 matplotlib==3.4.3
