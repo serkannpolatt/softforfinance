@@ -4,7 +4,7 @@ matplotlib
 tensorflow==2.11.1
 scikit-learn
 yahoo-fin
-protobuf>=3.20.2
+protobuf==3.20.2
 mpld3
 pandas_ta
 fpdf
