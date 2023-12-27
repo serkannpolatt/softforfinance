@@ -322,8 +322,14 @@ st.text("")
 st.markdown("Destek ve dirençleri daha iyi görmek için lütfen grafiği yakınlaştırın.")
 st.markdown("***")
 
-
-
+import streamlit as st
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.impute import SimpleImputer
+import matplotlib.pyplot as plt
+import mpld3
+from streamlit import components
 
 st.markdown("## Gelecek Fiyat Tahminleri")
 
@@ -340,46 +346,30 @@ scaled_data = scaler.fit_transform(dataset)
 
 train_data = scaled_data[0:int(training), :]
 
-
 # Özellikleri ve etiketleri hazırladım
 x_train = []
 y_train = []
 prediction_days = 60
-
 
 for i in range(prediction_days, len(train_data)):
     x_train.append(train_data[i-prediction_days:i, 0])
     y_train.append(train_data[i, 0])
 
 x_train, y_train = np.array(x_train), np.array(y_train)
-x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]))
 
+# Eğitim verilerindeki eksik değerleri sütun sütun doldur
+imputer = SimpleImputer()
+for col in range(x_train.shape[1]):
+    x_train[:, col] = imputer.fit_transform(x_train[:, col].reshape(-1, 1)).flatten()
 
+y_train = imputer.fit_transform(y_train.reshape(-1, 1)).flatten()
 
 # Doğrusal Regresyon modelini eğittim
 reg = LinearRegression().fit(x_train, y_train)
 
-x_tomm = close_prices[len(close_prices) - prediction_days:len(close_prices)]
-x_tomm = np.array(x_tomm)
-x_tomm_reshaped = x_tomm.reshape(-1, 1)
+# Geriye dönük gün sayısı
+prediction_days_back = 10
 
-# Yeniden şekillendirilmiş veriyi ölçeklendirdim
-x_tomm_scaled = scaler.transform(x_tomm_reshaped)
-
-# Ölçeklenmiş veriyi tekrar (1, n_features) şekline getirdim
-x_tomm_scaled_reshaped = x_tomm_scaled.reshape(1, -1)
-
-# Tahmin yaptırdım
-prediction = reg.predict(x_tomm_scaled_reshaped)
-prediction = scaler.inverse_transform(prediction.reshape(1, -1))
-
-# Tahmini gösterttim
-st.markdown(f"#### Yarının tahmini için: {ticker} = {round(prediction[0][0], 2)}")
-
-
-st.markdown("***")
-
-# Kullanıcıdan gelecek gün sayısı girişi (20'yi geçmemesi önerilir)
 FUTURE_DAYS = st.text_input("Gelecek gün sayısını girin (20'yi geçmemesi önerilir)")
 
 try:
@@ -390,16 +380,38 @@ except:
 predicted_prices = []
 tot_prices = list(close_prices)
 
+# ...
+
+# Belirtilen gün sayısı için gelecekteki fiyatları tahmin ettirdim
+# ...
+
+# Belirtilen gün sayısı için gelecekteki fiyatları tahmin ettirdim
+# ...
+
+# Belirtilen gün sayısı için gelecekteki fiyatları tahmin ettirdim
+# ...
+
 # Belirtilen gün sayısı için gelecekteki fiyatları tahmin ettirdim
 for i in range(FUTURE_DAYS):
     x_prices = tot_prices[len(tot_prices) - prediction_days: len(tot_prices)]
+    
+    # Diziyi düz bir diziye dönüştür
     x_prices_reshaped = np.array(x_prices).reshape(1, -1)
     
-    x_prices_scaled = np.zeros_like(x_prices_reshaped)
-    for j in range(x_prices_reshaped.shape[1]):
-        feature = x_prices_reshaped[:, j]
-        feature_scaled = scaler.transform(feature.reshape(-1, 1))
-        x_prices_scaled[:, j] = feature_scaled.flatten()
+    # Eksik değerleri doldur
+    for col in range(x_prices_reshaped.shape[1]):
+        x_prices_reshaped[:, col] = imputer.transform(x_prices_reshaped[:, col].reshape(-1, 1)).flatten()
+
+    # Ensure x_prices_reshaped has the same number of features as x_train
+    x_prices_reshaped = x_prices_reshaped[:, :x_train.shape[1]]
+
+    # Reshape for MinMaxScaler
+    x_prices_reshaped = x_prices_reshaped.reshape(-1, 1)
+    
+    x_prices_scaled = scaler.transform(x_prices_reshaped)
+
+    # Reshape back to 2D
+    x_prices_scaled = x_prices_scaled.reshape(1, -1)
     
     prediction = reg.predict(x_prices_scaled)
     
@@ -408,14 +420,23 @@ for i in range(FUTURE_DAYS):
     tot_prices = np.concatenate((tot_prices, prediction_inverse_scaled.flatten()))
     predicted_prices.append(prediction_inverse_scaled)
 
+# ...
+
+
+# ...
+
+
+# ...
+
+
+# ...
+
+
 tot_prices = np.array(tot_prices)
 predicted_prices = np.array(predicted_prices)
 
 tot_prices = np.reshape(tot_prices, (tot_prices.shape[0]))
 predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
-
-print(len(close_prices))
-print(len(tot_prices))
 
 
 
@@ -428,8 +449,11 @@ plt.ylabel("Fiyat", fontsize=15, color="black")
 plt.title("Gelecek Fiyat Tahminleri", fontsize=17, color="black")
 plt.legend()
 fig_html = mpld3.fig_to_html(fig)
-components.html(fig_html, height=500)
+# Streamlit ile göster
+st.components.v1.html(fig_html, height=500)
 figs.append(fig)
+
+
 
 
 
