@@ -48,8 +48,6 @@ Belirli bir hisse senedinin fiyat hareketlerini ve faktör verilerini kullanarak
 
 
 ## English
-
-## Turkish
 ## Bollinger Band and Regression Channel Trading Strategies
 
 It explains how you can use technical analysis tools such as Bollinger Bands and regression channels to develop trading strategies using Python codes. These technical analysis tools are used to analyze price movements in the market and make trading decisions.
