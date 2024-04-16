@@ -356,20 +356,8 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]))
 
 
 
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LinearRegression
-import numpy as np
-
-# Veriyi doldur
-imputer = SimpleImputer(strategy='mean')
-x_train_imputed = imputer.fit_transform(x_train)
-
-# Eksik değerleri kontrol et
-missing_values_x = np.isnan(x_train_imputed)
-print("Eksik değerlerin sayısı:", np.sum(missing_values_x))
-
-# Modeli eğitmeye devam et
-reg = LinearRegression().fit(x_train_imputed, y_train)
+# Doğrusal Regresyon modelini eğittim
+reg = LinearRegression().fit(x_train, y_train)
 
 x_tomm = close_prices[len(close_prices) - prediction_days:len(close_prices)]
 x_tomm = np.array(x_tomm)
@@ -384,7 +372,6 @@ x_tomm_scaled_reshaped = x_tomm_scaled.reshape(1, -1)
 # Tahmin yaptırdım
 prediction = reg.predict(x_tomm_scaled_reshaped)
 prediction = scaler.inverse_transform(prediction.reshape(1, -1))
-
 
 # Tahmini gösterttim
 st.markdown(f"#### Yarının tahmini için: {ticker} = {round(prediction[0][0], 2)}")
@@ -676,3 +663,5 @@ if export_as_pdf:
     html = create_download_link(pdf.output(dest="S").encode("latin-1"), f"{ticker} analizi")
     st.markdown(html, unsafe_allow_html=True)
     st.text("")
+    
+    
