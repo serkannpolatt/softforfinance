@@ -367,19 +367,23 @@ x_train_imputed = imputer.fit_transform(x_train)
 import numpy as np
 
 # Eksik değerleri kontrol et
-missing_values = np.isnan(y_train)
-print("Eksik değerlerin sayısı:", np.sum(missing_values))
+import numpy as np
+
+# Eksik değerleri kontrol et
+missing_values_x = np.isnan(x_train)
+print("Eksik değerlerin sayısı:", np.sum(missing_values_x))
 
 # Eksik değerleri doldur veya eksik değerlere sahip gözlemleri kaldır
 # Örnek olarak eksik değerleri ortalama ile dolduralım
-mean_y_train = np.mean(y_train[~missing_values])  # Eksik olmayan değerlerin ortalaması
-y_train[missing_values] = mean_y_train
+mean_x_train = np.nanmean(x_train, axis=0)  # Sütun bazında ortalama (her sütun için ayrı ortalama)
+x_train[missing_values_x] = np.take(mean_x_train, np.where(missing_values_x)[1])
 
 # Veriyi tekrar kontrol et
-print("Eksik değerlerin sayısı:", np.sum(np.isnan(y_train)))
+print("Eksik değerlerin sayısı:", np.sum(np.isnan(x_train)))
 
 # Modeli eğitmeye devam et
-reg = LinearRegression().fit(x_train_imputed, y_train)
+reg = LinearRegression().fit(x_train, y_train)
+
 
 # Modeli eğit
 reg = LinearRegression().fit(x_train_imputed, y_train)
