@@ -356,7 +356,6 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]))
 
 
 
-# Doğrusal Regresyon modelini eğittim
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -364,25 +363,13 @@ import numpy as np
 # Veriyi doldur
 imputer = SimpleImputer(strategy='mean')
 x_train_imputed = imputer.fit_transform(x_train)
-import numpy as np
-from sklearn.linear_model import LinearRegression
-from sklearn.impute import SimpleImputer
 
 # Eksik değerleri kontrol et
-missing_values_x = np.isnan(x_train)
+missing_values_x = np.isnan(x_train_imputed)
 print("Eksik değerlerin sayısı:", np.sum(missing_values_x))
-
-# Eksik değerleri doldur
-imputer = SimpleImputer(strategy='mean')
-x_train_imputed = imputer.fit_transform(x_train)
-
-# Veriyi tekrar kontrol et
-print("Eksik değerlerin sayısı:", np.sum(np.isnan(x_train_imputed)))
 
 # Modeli eğitmeye devam et
 reg = LinearRegression().fit(x_train_imputed, y_train)
-
-reg = LinearRegression().fit(x_train, y_train)
 
 x_tomm = close_prices[len(close_prices) - prediction_days:len(close_prices)]
 x_tomm = np.array(x_tomm)
@@ -397,6 +384,7 @@ x_tomm_scaled_reshaped = x_tomm_scaled.reshape(1, -1)
 # Tahmin yaptırdım
 prediction = reg.predict(x_tomm_scaled_reshaped)
 prediction = scaler.inverse_transform(prediction.reshape(1, -1))
+
 
 # Tahmini gösterttim
 st.markdown(f"#### Yarının tahmini için: {ticker} = {round(prediction[0][0], 2)}")
