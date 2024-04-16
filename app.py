@@ -357,6 +357,17 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]))
 
 
 # Doğrusal Regresyon modelini eğittim
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Veriyi doldur
+imputer = SimpleImputer(strategy='mean')
+x_train_imputed = imputer.fit_transform(x_train)
+
+# Modeli eğit
+reg = LinearRegression().fit(x_train_imputed, y_train)
+
 reg = LinearRegression().fit(x_train, y_train)
 
 x_tomm = close_prices[len(close_prices) - prediction_days:len(close_prices)]
@@ -663,5 +674,3 @@ if export_as_pdf:
     html = create_download_link(pdf.output(dest="S").encode("latin-1"), f"{ticker} analizi")
     st.markdown(html, unsafe_allow_html=True)
     st.text("")
-    
-    
