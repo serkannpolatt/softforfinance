@@ -382,11 +382,6 @@ y_train[missing_values_y] = mean_y_train
 # Veriyi tekrar kontrol et
 print("Eksik değerlerin sayısı:", np.sum(np.isnan(y_train)))
 
-# Modeli eğitmeye devam et
-reg = LinearRegression().fit(x_train, y_train)
-
-
-
 # Modeli eğit
 reg = LinearRegression().fit(x_train_imputed, y_train)
 
