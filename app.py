@@ -324,6 +324,10 @@ st.markdown("***")
 
 
 
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression
+import streamlit as st
 
 st.markdown("## Gelecek Fiyat Tahminleri")
 
@@ -340,42 +344,44 @@ scaled_data = scaler.fit_transform(dataset)
 
 train_data = scaled_data[0:int(training), :]
 
-
-# Özellikleri ve etiketleri hazırladım
+# Özellikleri ve etiketleri hazırla
 x_train = []
 y_train = []
 prediction_days = 60
-
 
 for i in range(prediction_days, len(train_data)):
     x_train.append(train_data[i-prediction_days:i, 0])
     y_train.append(train_data[i, 0])
 
 x_train, y_train = np.array(x_train), np.array(y_train)
-x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1]))
 
+# Handle missing values in X (replace NaN with mean)
+x_train = np.nan_to_num(x_train, nan=np.nanmean(x_train))
+# Handle missing values in y (replace NaN with mean)
+y_train = np.nan_to_num(y_train, nan=np.nanmean(y_train))
 
-
-# Doğrusal Regresyon modelini eğittim
+# Doğrusal Regresyon modelini eğit
 reg = LinearRegression().fit(x_train, y_train)
 
 x_tomm = close_prices[len(close_prices) - prediction_days:len(close_prices)]
 x_tomm = np.array(x_tomm)
 x_tomm_reshaped = x_tomm.reshape(-1, 1)
 
-# Yeniden şekillendirilmiş veriyi ölçeklendirdim
+# Yeniden şekillendirilmiş veriyi ölçeklendir
 x_tomm_scaled = scaler.transform(x_tomm_reshaped)
 
-# Ölçeklenmiş veriyi tekrar (1, n_features) şekline getirdim
+# Ölçeklenmiş veriyi tekrar (1, n_features) şekline getir
 x_tomm_scaled_reshaped = x_tomm_scaled.reshape(1, -1)
 
-# Tahmin yaptırdım
+# Handle missing values in future predictions (replace NaN with mean)
+x_tomm_scaled_reshaped = np.nan_to_num(x_tomm_scaled_reshaped, nan=np.nanmean(x_tomm_scaled_reshaped))
+
+# Tahmin yap
 prediction = reg.predict(x_tomm_scaled_reshaped)
 prediction = scaler.inverse_transform(prediction.reshape(1, -1))
 
-# Tahmini gösterttim
+# Tahmini göster
 st.markdown(f"#### Yarının tahmini için: {ticker} = {round(prediction[0][0], 2)}")
-
 
 st.markdown("***")
 
@@ -390,7 +396,7 @@ except:
 predicted_prices = []
 tot_prices = list(close_prices)
 
-# Belirtilen gün sayısı için gelecekteki fiyatları tahmin ettirdim
+# Belirtilen gün sayısı için gelecekteki fiyatları tahmin et
 for i in range(FUTURE_DAYS):
     x_prices = tot_prices[len(tot_prices) - prediction_days: len(tot_prices)]
     x_prices_reshaped = np.array(x_prices).reshape(1, -1)
@@ -400,6 +406,9 @@ for i in range(FUTURE_DAYS):
         feature = x_prices_reshaped[:, j]
         feature_scaled = scaler.transform(feature.reshape(-1, 1))
         x_prices_scaled[:, j] = feature_scaled.flatten()
+    
+    # Handle missing values in future predictions (replace NaN with mean)
+    x_prices_scaled = np.nan_to_num(x_prices_scaled, nan=np.nanmean(x_prices_scaled))
     
     prediction = reg.predict(x_prices_scaled)
     
@@ -416,6 +425,9 @@ predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
 
 print(len(close_prices))
 print(len(tot_prices))
+
+
+
 
 
 
