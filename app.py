@@ -52,8 +52,8 @@ if ticker == "":
     ticker3="^GSPC"
     ticker4="NVDA"
 # Girilen simgeyi görüntüle
-st.write("BIST100 için örnek sembol girişi:", ticker + ".IS"+ticker2+ ".IS")
-st.write("S&P500 için örnek sembol girişi:", ticker3+ticker4)
+st.write("BIST100 için örnek sembol girişi:", ticker + ".IS" + " " + ticker2 + ".IS")
+st.write("S&P500 için örnek sembol girişi:", ticker3 + " " + ticker4)
 
 # Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
 df = si.get_data(ticker)
