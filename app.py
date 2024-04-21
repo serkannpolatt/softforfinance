@@ -49,7 +49,7 @@ ticker = st.text_input("Hisse Senedi Göstergesi")
 if ticker == "":
     ticker = "XU100.IS"
 # Girilen simgeyi görüntüle
-st.write("**BIST 100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
+st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
 st.write("**S&P500 için örnek sembol girişi:** **^GSPC**, **NVDA**, **TSLA**, **AMZN** **vb.**")
 
 # Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
