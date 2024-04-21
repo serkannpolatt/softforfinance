@@ -46,7 +46,7 @@ Hisse senedi hareketini daha iyi anlamak için sadece birkaç teknik gösterge s
 ticker = st.text_input("Hisse Senedi Göstergesi")
 
 ticker = ticker.upper()
-# Eğer bir simge girilmemişse, varsayılan olarak "EREGL" olarak ayarladım
+# Eğer bir simge girilmemişse, varsayılan olarak "BIST100" olarak ayarladım
 if ticker == "":
     ticker = "XU100.IS"
 # Girilen simgeyi görüntüle
