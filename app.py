@@ -47,11 +47,10 @@ ticker = st.text_input("Hisse Senedi Göstergesi")
 
 # Eğer bir simge girilmemişse, varsayılan olarak "EREGL" olarak ayarladım
 if ticker == "":
-    ticker = "XU100"
-    ticker2="^GSPC"
+    ticker = "XU100.IS"
 # Girilen simgeyi görüntüle
-st.write("BIST100 için örnek sembol girişi:", ticker + ".IS")
-st.write("S&P500 için örnek sembol girişi:", ticker2)
+st.write("Bist 100 için örnek sembol girişi:", ticker)
+st.write("S&P500 için örnek sembol girişi:^GSPC")
 
 # Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
 df = si.get_data(ticker)
