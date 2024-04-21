@@ -13,7 +13,6 @@ from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
 
-
 base="light"
 
 def main():
@@ -33,6 +32,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 figs=[]
@@ -324,11 +324,6 @@ st.markdown("***")
 
 
 
-import numpy as np
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LinearRegression
-import streamlit as st
-
 st.markdown("## Gelecek Fiyat Tahminleri")
 
 # Veri kümesini hazırla
@@ -425,11 +420,6 @@ predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
 
 print(len(close_prices))
 print(len(tot_prices))
-
-
-
-
-
 
 
 fig = plt.figure()
@@ -675,5 +665,4 @@ if export_as_pdf:
     html = create_download_link(pdf.output(dest="S").encode("latin-1"), f"{ticker} analizi")
     st.markdown(html, unsafe_allow_html=True)
     st.text("")
-    
     
