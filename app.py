@@ -50,7 +50,7 @@ if ticker == "":
     ticker = "XU100.IS"
     ticker2="^GSPC"
 # Girilen simgeyi görüntüle
-st.write("Bist100 için örnek sembol girişi:", ticker + ".IS")
+st.write("BIST100 için örnek sembol girişi:", ticker + ".IS")
 st.write("S&P500 için örnek sembol girişi:", ticker2)
 
 # Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
