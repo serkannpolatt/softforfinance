@@ -47,7 +47,7 @@ ticker = st.text_input("Hisse Senedi Göstergesi")
 
 # Eğer bir simge girilmemişse, varsayılan olarak "EREGL" olarak ayarladım
 if ticker == "":
-    ticker = "XU100.IS"
+    ticker = "XU100,PGSUS,DOAS vb"
     ticker2="^GSPC"
 # Girilen simgeyi görüntüle
 st.write("BIST100 için örnek sembol girişi:", ticker + ".IS")
