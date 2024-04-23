@@ -23,6 +23,8 @@ def main():
     # İletişim bilgilerini sidebar içinde görüntüledim
     st.sidebar.subheader("E-posta:")
     st.sidebar.write("itsonlydatahustle@gmail.com")
+    st.sidebar.subheader("Linkedln:")
+    st.sidebar.write("www.linkedin.com/in/serkann-polatt")
     st.sidebar.subheader("Github:")
     st.sidebar.write("https://github.com/serkannpolatt")
     st.sidebar.subheader("Kaggle:")
