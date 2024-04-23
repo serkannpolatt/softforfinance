@@ -419,10 +419,6 @@ predicted_prices = np.array(predicted_prices)
 tot_prices = np.reshape(tot_prices, (tot_prices.shape[0]))
 predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
 
-print(len(close_prices))
-print(len(tot_prices))
-
-
 fig = plt.figure()
 plt.plot(tot_prices, label='Tahmin Edilen Gelecek Fiyatlar')
 plt.plot(close_prices, label='Şimdiki fiyatlar')
@@ -433,7 +429,6 @@ plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
 figs.append(fig)
-
 
 
 
