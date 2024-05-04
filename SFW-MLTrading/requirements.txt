@@ -137,7 +137,7 @@ parso==0.8.3
 passlib==1.7.4
 peewee==3.17.0
 pexpect==4.9.0
-pillow==10.2.0
+pillow==10.3.0
 platformdirs==4.1.0
 plotly==5.18.0
 pluggy==1.4.0
