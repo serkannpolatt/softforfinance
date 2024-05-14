@@ -1,0 +1,43 @@
+2024-02-03 13:44:09,357: root: INFO: MLTrader : Executing the initialize lifecycle method
+2024-02-03 13:44:10,298: root: INFO: Current backtesting datetime 2020-01-02 08:30:00-05:00
+2024-02-03 13:44:10,298: root: INFO: MLTrader : Executing the before_market_opens lifecycle method
+2024-02-03 13:44:10,299: root: INFO: Current backtesting datetime 2020-01-02 09:30:00-05:00
+2024-02-03 13:44:10,300: root: INFO: MLTrader : Executing the before_starting_trading lifecycle method
+2024-02-03 13:44:10,301: root: INFO: [34mMLTrader : Executing the on_trading_iteration lifecycle method at 2024-02-03 13:44:10[0m
+2024-02-03 13:44:10,302: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-02-03 13:44:10,597: root: ERROR: YAHOO did not return data for symbol SPY. Make sure this symbol is valid.
+2024-02-03 13:44:10,597: root: ERROR: unsupported operand type(s) for /: 'float' and 'NoneType'
+2024-02-03 13:44:10,598: root: ERROR: Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 829, in run
+    self._run_trading_session()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 780, in _run_trading_session
+    self._on_trading_iteration()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 274, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 298, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 87, in func_output
+    return func_input(self, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 378, in _on_trading_iteration
+    on_trading_iteration()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\tools\decorators.py", line 62, in func_output
+    frame, result = call_function_get_frame(func_input, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\tools\decorators.py", line 30, in call_function_get_frame
+    result = func(*args, **kwargs)
+  File "c:\Users\Serkan POLAT\Desktop\MLTradingBot-main\tradingbot.py", line 49, in on_trading_iteration
+    cash, last_price, quantity = self.position_sizing()
+  File "c:\Users\Serkan POLAT\Desktop\MLTradingBot-main\tradingbot.py", line 31, in position_sizing
+    quantity = round(cash * self.cash_at_risk / last_price,0)
+TypeError: unsupported operand type(s) for /: 'float' and 'NoneType'
+
+2024-02-03 13:44:10,599: root: INFO: MLTrader : Executing the on_bot_crash event method
+2024-02-03 13:44:10,604: root: INFO: Backtesting finished
+2024-02-03 13:44:10,606: root: WARNING: Cannot plot returns because the strategy returns are missing
+2024-02-03 13:44:10,680: root: WARNING: Cannot create a tearsheet because the strategy returns are missing
+2024-02-03 13:44:10,680: backtest_stats: INFO: Backtest took 0:00:01.324102 for a speed of 0.000
+2024-02-03 13:44:10,682: root: INFO: mlstrat : Executing the initialize lifecycle method
+2024-02-03 13:44:12,405: root: INFO: Sleeping until the market opens
+2024-02-03 13:44:12,993: root: INFO: mlstrat : Executing the before_market_opens lifecycle method
+2024-02-03 13:44:13,726: root: INFO: Sleeping until the market opens
+2024-02-03 13:44:13,727: root: INFO: mlstrat : Executing the before_starting_trading lifecycle method
+2024-02-03 13:44:14,026: root: INFO: [34mmlstrat : Strategy will check in again at: 2024-02-03 14:00:00[0m

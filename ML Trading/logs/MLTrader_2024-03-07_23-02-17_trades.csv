@@ -1,0 +1,5 @@
+time,strategy,symbol,side,type,status,multiplier,time_in_force,asset.strike,asset.multiplier,asset.asset_type,price,filled_quantity,trade_cost
+2020-07-13 09:30:00-04:00,MLTrader,NDAQ,buy,market,new,1,gtc,0.0,1,stock,,,
+2020-07-13 09:30:00-04:00,MLTrader,NDAQ,buy,market,fill,1,gtc,0.0,1,stock,40.996665954589844,1220.0,0.0
+2021-03-09 09:30:00-05:00,MLTrader,NDAQ,sell,stop,canceled,1,day,0.0,1,stock,,,
+2021-03-09 09:30:00-05:00,MLTrader,NDAQ,sell,limit,fill,1,day,0.0,1,stock,49.19599914550781,1220.0,0.0

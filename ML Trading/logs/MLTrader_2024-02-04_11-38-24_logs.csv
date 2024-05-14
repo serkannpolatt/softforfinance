@@ -1,0 +1,146 @@
+2024-02-04 11:38:24,672: root: INFO: MLTrader : Executing the initialize lifecycle method
+2024-02-04 11:38:25,642: root: INFO: Current backtesting datetime 2020-01-02 08:30:00-05:00
+2024-02-04 11:38:25,643: root: INFO: MLTrader : Executing the before_market_opens lifecycle method
+2024-02-04 11:38:25,644: root: INFO: Current backtesting datetime 2020-01-02 09:30:00-05:00
+2024-02-04 11:38:25,644: root: INFO: MLTrader : Executing the before_starting_trading lifecycle method
+2024-02-04 11:38:25,645: root: INFO: [34mMLTrader : Executing the on_trading_iteration lifecycle method at 2024-02-04 11:38:25[0m
+2024-02-04 11:38:25,646: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-02-04 11:38:25,965: root: ERROR: YAHOO did not return data for symbol SPY. Make sure this symbol is valid.
+2024-02-04 11:38:25,966: root: ERROR: unsupported operand type(s) for /: 'float' and 'NoneType'
+2024-02-04 11:38:25,966: root: ERROR: Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 829, in run
+    self._run_trading_session()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 780, in _run_trading_session
+    self._on_trading_iteration()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 274, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 298, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 87, in func_output
+    return func_input(self, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\strategies\strategy_executor.py", line 378, in _on_trading_iteration
+    on_trading_iteration()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\tools\decorators.py", line 62, in func_output
+    frame, result = call_function_get_frame(func_input, *args, **kwargs)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\lumibot\tools\decorators.py", line 30, in call_function_get_frame
+    result = func(*args, **kwargs)
+  File "c:\Users\Serkan POLAT\Desktop\MLTradingBot-main\tradingbot.py", line 49, in on_trading_iteration
+    cash, last_price, quantity = self.position_sizing()
+  File "c:\Users\Serkan POLAT\Desktop\MLTradingBot-main\tradingbot.py", line 31, in position_sizing
+    quantity = round(cash * self.cash_at_risk / last_price,0)
+TypeError: unsupported operand type(s) for /: 'float' and 'NoneType'
+
+2024-02-04 11:38:25,968: root: INFO: MLTrader : Executing the on_bot_crash event method
+2024-02-04 11:38:25,973: root: INFO: Backtesting finished
+2024-02-04 11:38:25,974: root: WARNING: Cannot plot returns because the strategy returns are missing
+2024-02-04 11:38:26,049: root: WARNING: Cannot create a tearsheet because the strategy returns are missing
+2024-02-04 11:38:26,049: backtest_stats: INFO: Backtest took 0:00:01.377689 for a speed of 0.000
+2024-02-04 11:38:26,051: root: INFO: mlstrat : Executing the initialize lifecycle method
+2024-02-04 11:38:27,700: root: INFO: Sleeping until the market opens
+2024-02-04 11:38:28,295: root: INFO: mlstrat : Executing the before_market_opens lifecycle method
+2024-02-04 11:38:29,011: root: INFO: Sleeping until the market opens
+2024-02-04 11:38:29,012: root: INFO: mlstrat : Executing the before_starting_trading lifecycle method
+2024-02-04 11:38:29,380: root: INFO: [34mmlstrat : Strategy will check in again at: 2024-02-04 12:00:00[0m
+2024-02-04 12:00:01,700: root: INFO: [34mmlstrat : The market is not currently open, skipping this trading iteration[0m
+2024-02-04 12:54:05,644: alpaca.trading.stream: WARNING: trading stream websocket error, restarting  connection: no close frame received or sent
+2024-02-04 12:54:05,664: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 12:54:06,463: alpaca.trading.stream: INFO: connected to: wss://paper-api.alpaca.markets/stream
+2024-02-04 13:00:01,143: root: INFO: [34mmlstrat : Skipping this iteration because it's not time yet. 23 iterations left before we run again[0m
+2024-02-04 13:17:39,582: alpaca.trading.stream: WARNING: trading stream websocket error, restarting  connection: no close frame received or sent
+2024-02-04 13:17:39,600: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 13:17:40,502: alpaca.trading.stream: INFO: connected to: wss://paper-api.alpaca.markets/stream
+2024-02-04 13:34:52,868: alpaca.trading.stream: WARNING: trading stream websocket error, restarting  connection: no close frame received or sent
+2024-02-04 13:34:52,891: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 13:34:54,826: alpaca.trading.stream: INFO: connected to: wss://paper-api.alpaca.markets/stream
+2024-02-04 13:47:40,107: alpaca.trading.stream: WARNING: trading stream websocket error, restarting  connection: no close frame received or sent
+2024-02-04 13:47:40,131: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 13:47:41,253: alpaca.trading.stream: INFO: connected to: wss://paper-api.alpaca.markets/stream
+2024-02-04 13:57:19,465: websockets.client: ERROR: data transfer failed
+Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\protocol.py", line 959, in transfer_data
+    message = await self.read_message()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\protocol.py", line 1029, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\protocol.py", line 1104, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\protocol.py", line 1161, in read_frame
+    frame = await Frame.read(
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\framing.py", line 68, in read
+    data = await reader(2)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\streams.py", line 707, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\streams.py", line 501, in _wait_for_data
+    await self._waiter
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 821, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 489, in finish_recv
+    return ov.getresult()
+OSError: [WinError 121] Semafor zaman aşımı süresi geçildi
+2024-02-04 13:57:19,522: alpaca.trading.stream: WARNING: trading stream websocket error, restarting  connection: no close frame received or sent
+2024-02-04 13:57:19,542: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 13:57:29,557: alpaca.trading.stream: ERROR: error during websocket communication: 
+Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\client.py", line 655, in __await_impl_timeout__
+    return await self.__await_impl__()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\client.py", line 659, in __await_impl__
+    _transport, _protocol = await self._create_connection()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1054, in create_connection
+    sock = await self._connect_sock(
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 963, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 709, in sock_connect
+    return await self._proactor.connect(sock, address)
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\alpaca\trading\stream.py", line 170, in _run_forever
+    await self._start_ws()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\alpaca\trading\stream.py", line 130, in _start_ws
+    await self._connect()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\alpaca\trading\stream.py", line 61, in _connect
+    self._ws = await websockets.connect(self._endpoint, **self._websocket_params)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\client.py", line 654, in __await_impl_timeout__
+    async with asyncio_timeout(self.open_timeout):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\async_timeout.py", line 169, in __aexit__
+    self._do_exit(exc_type)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\async_timeout.py", line 252, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+2024-02-04 13:57:29,619: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 13:57:39,607: alpaca.trading.stream: ERROR: error during websocket communication: 
+Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\client.py", line 655, in __await_impl_timeout__
+    return await self.__await_impl__()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\client.py", line 659, in __await_impl__
+    _transport, _protocol = await self._create_connection()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1054, in create_connection
+    sock = await self._connect_sock(
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 963, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 709, in sock_connect
+    return await self._proactor.connect(sock, address)
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\alpaca\trading\stream.py", line 170, in _run_forever
+    await self._start_ws()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\alpaca\trading\stream.py", line 130, in _start_ws
+    await self._connect()
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\alpaca\trading\stream.py", line 61, in _connect
+    self._ws = await websockets.connect(self._endpoint, **self._websocket_params)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\client.py", line 654, in __await_impl_timeout__
+    async with asyncio_timeout(self.open_timeout):
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\async_timeout.py", line 169, in __aexit__
+    self._do_exit(exc_type)
+  File "C:\Users\Serkan POLAT\AppData\Local\Programs\Python\Python310\lib\site-packages\websockets\legacy\async_timeout.py", line 252, in _do_exit
+    raise asyncio.TimeoutError
+asyncio.exceptions.TimeoutError
+2024-02-04 13:57:39,638: alpaca.trading.stream: INFO: starting trading websocket connection
+2024-02-04 13:57:41,414: alpaca.trading.stream: INFO: connected to: wss://paper-api.alpaca.markets/stream
+2024-02-04 14:00:01,123: root: INFO: [34mmlstrat : Skipping this iteration because it's not time yet. 22 iterations left before we run again[0m
