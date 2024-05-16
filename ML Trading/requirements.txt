@@ -36,7 +36,7 @@ debugpy==1.8.0
 decorator==5.1.1
 defusedxml==0.7.1
 deprecation==2.1.0
-dnspython==2.5.0
+dnspython==2.6.1
 email-validator==2.1.0.post1
 exceptiongroup==1.2.0
 exchange_calendars==4.5.2
