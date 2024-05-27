@@ -8,4 +8,4 @@ statsmodels==0.12.2
 matplotlib==3.4.3
 scipy==1.10.0
 pandas-datareader==0.10.0
-requests==2.31.0
+requests==2.32.2
