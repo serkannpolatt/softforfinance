@@ -1,11 +1,6 @@
-import streamlit as st
-
 import pandas as pd
-# Change from
-import pandas_ta as pta
 import streamlit as st
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 import mpld3
 import streamlit.components.v1 as components
@@ -17,6 +12,10 @@ import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
+
+# Use np.nan for NaN values
+print(np.nan)
+
 
 
 base="light"
