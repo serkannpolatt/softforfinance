@@ -1,4 +1,5 @@
-from some_module import pta
+import pandas_ta as pta
+
 import streamlit as st
 from numpy import nan as npNaN
 import numpy as np
