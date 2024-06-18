@@ -357,10 +357,9 @@ for i in range(prediction_days, len(train_data)):
 
 x_train, y_train = np.array(x_train), np.array(y_train)
 
-# Handle missing values in X (replace NaN with mean)
-x_train = np.nan_to_num(x_train, nan=np.nanmean(x_train))
-# Handle missing values in y (replace NaN with mean)
-y_train = np.nan_to_num(y_train, nan=np.nanmean(y_train))
+x_train = np.nan_to_num(x_train, nan=np.nan)
+y_train = np.nan_to_num(y_train, nan=np.nan)
+
 
 # Doğrusal Regresyon modelini eğit
 reg = LinearRegression().fit(x_train, y_train)
