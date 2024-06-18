@@ -1,4 +1,5 @@
 import pandas_ta as pta
+from pandas_ta.core import *
 import streamlit as st
 import numpy as np
 import pandas as pd
