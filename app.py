@@ -1,6 +1,6 @@
-# Correct import statements
-import pandas as pd
 import streamlit as st
+import pandas as pd
+from numpy import NaN as npNaN
 import numpy as np
 import matplotlib.pyplot as plt
 import mpld3
@@ -13,6 +13,7 @@ import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
+
 
 
 base="light"
