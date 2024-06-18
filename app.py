@@ -1,11 +1,10 @@
-import pandas_ta as pta
-from pandas_ta.core import *
 import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import mpld3
 import streamlit.components.v1 as components
+import pandas_ta as pta
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 from fpdf import FPDF
@@ -24,8 +23,6 @@ def main():
     # İletişim bilgilerini sidebar içinde görüntüledim
     st.sidebar.subheader("E-posta:")
     st.sidebar.write("itsonlydatahustle@gmail.com")
-    st.sidebar.subheader("Linkedln:")
-    st.sidebar.write("www.linkedin.com/in/serkann-polatt")
     st.sidebar.subheader("Github:")
     st.sidebar.write("https://github.com/serkannpolatt")
     st.sidebar.subheader("Kaggle:")
