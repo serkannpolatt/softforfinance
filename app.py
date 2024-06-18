@@ -13,6 +13,7 @@ from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
 
+
 base="light"
 
 def main():
@@ -34,7 +35,6 @@ if __name__ == "__main__":
     main()
 
 
-
 figs=[]
 
 st.markdown(""" ## Hisse Senedi Fiyat Analizi ve Tahmini  """,unsafe_allow_html=True)
@@ -45,13 +45,12 @@ Hisse senedi hareketini daha iyi anlamak için sadece birkaç teknik gösterge s
 # Kullanıcıdan hisse senedi simgesini al
 ticker = st.text_input("Hisse Senedi Göstergesi")
 
-ticker = ticker.upper()
-# Eğer bir simge girilmemişse, varsayılan olarak "BIST100" olarak ayarladım
+# Eğer bir simge girilmemişse, varsayılan olarak "EREGL" olarak ayarladım
 if ticker == "":
-    ticker = "XU100.IS"
+    ticker = "EREGL.IS"
+
 # Girilen simgeyi görüntüle
-st.write("**BIST100 için örnek sembol girişi:** **PGSUS.IS**, **DOAS.IS** **vb.**")
-st.write("**S&P500 için örnek sembol girişi:** **^GSPC**, **NVDA**, **TSLA**, **AMZN** **vb.**")
+st.write("Örnek Sembol Girişi:", ticker)
 
 # Finansal API'den (Örn: Yahoo Finance) simgeye ait hisse verilerini aldım
 df = si.get_data(ticker)
@@ -325,6 +324,11 @@ st.markdown("***")
 
 
 
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression
+import streamlit as st
+
 st.markdown("## Gelecek Fiyat Tahminleri")
 
 # Veri kümesini hazırla
@@ -419,6 +423,15 @@ predicted_prices = np.array(predicted_prices)
 tot_prices = np.reshape(tot_prices, (tot_prices.shape[0]))
 predicted_prices = np.reshape(predicted_prices, (predicted_prices.shape[0]))
 
+print(len(close_prices))
+print(len(tot_prices))
+
+
+
+
+
+
+
 fig = plt.figure()
 plt.plot(tot_prices, label='Tahmin Edilen Gelecek Fiyatlar')
 plt.plot(close_prices, label='Şimdiki fiyatlar')
@@ -429,6 +442,7 @@ plt.legend()
 fig_html = mpld3.fig_to_html(fig)
 components.html(fig_html, height=500)
 figs.append(fig)
+
 
 
 
@@ -661,4 +675,3 @@ if export_as_pdf:
     html = create_download_link(pdf.output(dest="S").encode("latin-1"), f"{ticker} analizi")
     st.markdown(html, unsafe_allow_html=True)
     st.text("")
-    
