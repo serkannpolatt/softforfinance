@@ -1,12 +1,12 @@
-pandas 
-numpy 
+numpy==1.21.0
+pandas==1.3.0
+pandas_ta==0.3.14b0
+streamlit==1.0.0
 matplotlib
 tensorflow
 scikit-learn
 yahoo-fin
 protobuf
 mpld3
-pandas_ta 
-streamlit 
 fpdf
 streamlit-option-menu
