@@ -1,3 +1,4 @@
+# Correct import statements
 import pandas as pd
 import streamlit as st
 import numpy as np
@@ -12,10 +13,6 @@ import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
-
-# Use np.nan for NaN values
-print(np.nan)
-
 
 
 base="light"
