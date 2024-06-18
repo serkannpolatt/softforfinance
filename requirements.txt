@@ -10,5 +10,3 @@ protobuf
 mpld3
 fpdf
 streamlit-option-menu
-some_module
-another_module
