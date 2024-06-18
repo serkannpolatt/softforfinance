@@ -1,6 +1,11 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import numpy as np
+
+npNaN = np.nan
+
+import pandas_ta as pta
 
 import matplotlib.pyplot as plt
 import mpld3
