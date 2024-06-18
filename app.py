@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from numpy import nan as npNaN
+
 import matplotlib.pyplot as plt
 import mpld3
 import streamlit.components.v1 as components
