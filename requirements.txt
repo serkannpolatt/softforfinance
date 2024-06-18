@@ -1,6 +1,6 @@
-numpy==1.21.0
-pandas==1.3.0
-pandas_ta==0.3.14b0
+numpy
+pandas
+pandas_ta
 streamlit
 matplotlib
 tensorflow
