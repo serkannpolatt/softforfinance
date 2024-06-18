@@ -1,10 +1,14 @@
 import streamlit as st
+# Importing numpy under alias np
+from numpy import NaN as npNaN
+import numpy as np
 import pandas as pd
 import numpy as np
+npNaN = np.nan
+import pandas_ta as pta
 import matplotlib.pyplot as plt
 import mpld3
 import streamlit.components.v1 as components
-import pandas_ta as pta
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 from fpdf import FPDF
@@ -12,7 +16,6 @@ import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
-
 
 
 base="light"
@@ -356,9 +359,10 @@ for i in range(prediction_days, len(train_data)):
 
 x_train, y_train = np.array(x_train), np.array(y_train)
 
-x_train = np.nan_to_num(x_train, nan=np.nan)
-y_train = np.nan_to_num(y_train, nan=np.nan)
-
+# Handle missing values in X (replace NaN with mean)
+x_train = np.nan_to_num(x_train, nan=np.nanmean(x_train))
+# Handle missing values in y (replace NaN with mean)
+y_train = np.nan_to_num(y_train, nan=np.nanmean(y_train))
 
 # Doğrusal Regresyon modelini eğit
 reg = LinearRegression().fit(x_train, y_train)
