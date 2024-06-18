@@ -1,12 +1,11 @@
-numpy
 pandas
-pandas_ta
-streamlit
+numpy
 matplotlib
 tensorflow
 scikit-learn
 yahoo-fin
 protobuf
 mpld3
+pandas_ta
 fpdf
 streamlit-option-menu
