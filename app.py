@@ -1,6 +1,8 @@
 
 import streamlit as st
-from numpy import nan as npNaN
+from numpy import NaN as npNaN                                          
+
+
 
 import numpy as np
 npNaN = np.nan
