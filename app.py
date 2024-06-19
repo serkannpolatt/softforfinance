@@ -1,9 +1,14 @@
 
 import streamlit as st
+# Correct import statements
 import numpy as np
+from pandas import DataFrame
+from pandas_ta.momentum import mom
+from pandas_ta.overlap import ema, sma
 
 # Use np.nan directly
 npNaN = np.nan
+
 
 
 import pandas as pd
