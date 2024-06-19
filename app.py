@@ -4,8 +4,6 @@ from numpy import NaN as npNaN
 import numpy as np
 npNaN = np.nan
 import pandas as pd
-import numpy as np
-npNaN = np.nan
 import pandas_ta as pta
 import matplotlib.pyplot as plt
 import mpld3
