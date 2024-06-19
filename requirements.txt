@@ -1,5 +1,6 @@
 pandas
-numpy
+numpy==1.22.0
+
 streamlit
 matplotlib
 tensorflow
