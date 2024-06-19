@@ -1,4 +1,5 @@
 pandas
+python==3.10
 numpy
 streamlit
 matplotlib
