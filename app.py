@@ -1,11 +1,11 @@
 
 import streamlit as st
-from numpy import NaN as npNaN                                          
-
-
-
 import numpy as np
+
+# Use np.nan directly
 npNaN = np.nan
+
+
 import pandas as pd
 import pandas_ta as pta
 import matplotlib.pyplot as plt
