@@ -1,16 +1,6 @@
-
 import streamlit as st
-# Correct import statements
 import numpy as np
-from pandas import DataFrame
-from pandas_ta.momentum import mom
-from pandas_ta.overlap import ema, sma
-
-# Use np.nan directly
 npNaN = np.nan
-
-
-
 import pandas as pd
 import pandas_ta as pta
 import matplotlib.pyplot as plt
@@ -23,15 +13,6 @@ import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
-
-import numpy as np
-
-# NaN değeri oluşturma
-nan_value = np.nan
-
-print(nan_value)  # Çıktı: nan
-
-
 
 base="light"
 
