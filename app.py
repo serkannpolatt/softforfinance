@@ -1,8 +1,10 @@
 
 import streamlit as st
-# Importing numpy under alias np
+
+
 from numpy import NaN as npNaN
 import numpy as np
+npNaN = np.nan
 import pandas as pd
 import numpy as np
 npNaN = np.nan
