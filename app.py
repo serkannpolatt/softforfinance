@@ -1,7 +1,5 @@
 
 import streamlit as st
-
-
 from numpy import NaN as npNaN
 import numpy as np
 npNaN = np.nan
@@ -19,6 +17,12 @@ import base64
 from tempfile import NamedTemporaryFile
 from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
+
+import numpy as np
+print("Numpy sürümü:", np.__version__)
+npNaN = np.nan
+print("NaN değeri:", npNaN)
+
 
 base="light"
 
