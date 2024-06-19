@@ -1,6 +1,7 @@
 
 import streamlit as st
-from numpy import NaN as npNaN
+from numpy import nan as npNaN
+
 import numpy as np
 npNaN = np.nan
 import pandas as pd
@@ -17,9 +18,12 @@ from yahoo_fin import stock_info as si
 from streamlit_option_menu import option_menu
 
 import numpy as np
-print("Numpy sürümü:", np.__version__)
-npNaN = np.nan
-print("NaN değeri:", npNaN)
+
+# NaN değeri oluşturma
+nan_value = np.nan
+
+print(nan_value)  # Çıktı: nan
+
 
 
 base="light"
