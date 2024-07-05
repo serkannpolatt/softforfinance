@@ -1,0 +1,100 @@
+import pandas as pd
+from retrying import retry
+from tvDatafeed import TvDatafeed, Interval
+import matplotlib.pyplot as plt
+import mplcyberpunk
+import matplotlib.colors as mcolors  # Importing colors for gradient
+import telepot
+
+tv = TvDatafeed()
+all_data = pd.DataFrame()
+
+def create_table_image(df, filename):
+    plt.close()
+    df_sorted = df.sort_values(by=df.columns[-1], ascending=False)  # Sort based on last column
+    df_sorted = df_sorted.reset_index()  # Reset index after sorting
+    df_sorted = df_sorted.rename(columns={df.columns[0]: 'Yüzde'})
+
+    num_rows, num_cols = df_sorted.shape
+    cell_colors = [['none'] * num_cols for _ in range(num_rows)]  # Add one row for column headers
+
+    # Calculate color gradient from green to red
+    norm = mcolors.Normalize(vmin=df_sorted[df_sorted.columns[-1]].min(), vmax=df_sorted[df_sorted.columns[-1]].max())
+    colors = [plt.cm.RdYlGn(norm(value)) for value in df_sorted[df_sorted.columns[-1]]]
+
+    with plt.style.context('cyberpunk'):
+        fig = plt.figure(figsize=(10, 10))  # Adjust the figure size as needed
+        gs = fig.add_gridspec(1, 2, width_ratios=[10, 10], height_ratios=[1]) # Equal height for both subplots
+
+
+        # Plot the bar plot for the last column with color gradient and labels
+        ax_bar = fig.add_subplot(gs[0, 1])
+        bars = ax_bar.barh(df_sorted.index, df_sorted[df_sorted.columns[-1]], color=colors)
+        ax_bar.set_title('Değişim Grafikleri')
+
+        # Add labels to the horizontal bar plot
+        for i, bar in enumerate(bars):
+            ax_bar.text(bar.get_width(), bar.get_y() + bar.get_height() / 2, f'{df_sorted.iloc[i, 0]}: {df_sorted.iloc[i, -1]}',
+                        va='center', ha='left')
+
+        # Plot the table
+        df_sorted=df_sorted.iloc[::-1]
+        ax_table = fig.add_subplot(gs[0, 0])
+        ax_table.axis('off')  # Turn off axes for the table
+        table = ax_table.table(cellText=df_sorted.values, colLabels=df_sorted.columns, loc='center',
+                               cellColours=cell_colors, colColours=['none'] * num_cols)
+
+        table.auto_set_column_width(0)
+        table.auto_set_column_width(1)
+        table.auto_set_font_size(False)  # Disable auto font size
+        table.set_fontsize(12)  # Set font size to 12 (adjust as needed)
+        table.scale(1, 1.8)
+
+
+        plt.savefig(filename + '.png', dpi=300)
+        plt.show()
+        plt.close()
+
+Endeksler = [
+    ('XU030', 'BIST 30'),
+    ('XU100', 'BIST 100'),
+    ('XINSA', 'BIST İnşaat'),
+    ('XBLSM', 'BIST Bilişim'),
+    ('XUTEK', 'BIST Teknoloji'),
+    ('XGMYO', 'Gayrimenkul Y.O.'),
+    ('XHOLD', 'BIST Holding ve Yatırım'),
+    ('XFINK', 'BIST Fin. Kir. Faktoring'),
+    ('XSGRT', 'BIST Sigorta'),
+    ('XBANK', 'BIST Banka'),
+    ('XUMAL', 'BIST Mali'),
+    ('XILTM', 'BIST İletişim'),
+    ('XTRZM', 'BIST Turizm'),
+    ('XULAS', 'BIST Ulaştırma'),
+    ('XELKT', 'BIST Elektrik'),
+    ('XUHIZ', 'BIST Hizmetler'),
+    ('XMESY', 'BIST Metal Eşya Makine'),
+    ('XMANA', 'BIST Metal Ana'),
+    ('XTAST', 'BIST Taş Toprak'),
+    ('XKMYA', 'BIST Kimya Petrol Plastik'),
+    ('XKAGT', 'BIST Orman Kağıt Basım'),
+    ('XTEKS', 'BIST Tekstil Deri'),
+    ('XGIDA', 'BIST Gıda İçecek'),
+    ('XUSIN', 'BIST Sınai'),
+    ('XMADN', 'BIST Maden')]
+
+@retry(wait_fixed=2000, stop_max_attempt_number=3)
+def retrieve_data(tv, symbol):
+    return tv.get_hist(symbol=symbol, exchange='BIST', interval=Interval.in_daily, n_bars=90)['close']
+
+for i, (symbol, name) in enumerate(Endeksler):
+    print(symbol)
+    try:
+        data = retrieve_data(tv, symbol)
+        all_data[name] = data
+    except Exception as e:
+        print(f"Error retrieving data for {symbol}: {e}")
+
+percent_change = all_data.iloc[-2:].pct_change().dropna() * 100
+percent_change = percent_change.T.round(2)
+print(percent_change)
+create_table_image(percent_change, 'Günlük_Endeks_Raporu')
