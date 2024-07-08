@@ -1,0 +1,9 @@
+pandas
+urllib3
+ssl
+tvDatafeed
+market-profile
+matplotlib
+mplfinance
+mplcyberpunk
+vectorbt
