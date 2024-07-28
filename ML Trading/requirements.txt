@@ -23,7 +23,7 @@ bidict==0.22.1
 bleach==6.1.0
 blinker==1.7.0
 ccxt==4.2.22
-certifi==2023.11.17
+certifi==2024.7.4
 cffi==1.16.0
 charset-normalizer==2.1.1
 click==8.1.7
