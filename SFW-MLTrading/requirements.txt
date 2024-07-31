@@ -43,7 +43,7 @@ exchange_calendars==4.5.2
 executing==2.0.1
 fastjsonschema==2.19.1
 filelock==3.13.1
-Flask==3.0.1
+Flask==3.0.0
 Flask-BabelEx==0.9.4
 Flask-Login==0.6.3
 Flask-Mail==0.9.1
