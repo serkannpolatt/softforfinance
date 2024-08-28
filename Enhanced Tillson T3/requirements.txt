@@ -1,0 +1,6 @@
+pandas
+retrying
+tvDatafeed
+matplotlib
+mplcyberpunk
+telepot
