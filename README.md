@@ -76,8 +76,6 @@ Amacımız, kullanıcıları etkili finansal karar verme ve strateji geliştirme
 **Teknikler & Modeller**:
 - Finansal haber makalelerinin duygu analizi için Doğal Dil İşleme (NLP) tekniklerinin uygulanması.
 
-### Sonuç
-**Soft for Finance** deposunun, finans ve veri bilimi kesişimine ilgi duyanlar için kıymetli bir kaynak olmasını umuyoruz. Amacımız, bilgi paylaşımına destek olan ve yenilikçi çözümlerin geliştirilmesine yardımcı olan bir topluluk oluşturmaktır.
 
 ---
 
@@ -165,8 +163,6 @@ Our mission is to equip users with the necessary knowledge and tools to leverage
 **Techniques & Models**:
 - Implementing Natural Language Processing (NLP) techniques for sentiment analysis of financial news articles.
 
-### Conclusion
-We hope that the **Softforfinance** repository serves as a valuable resource for anyone interested in the intersection of finance and data science. Our goal is to foster a community that supports knowledge sharing and encourages the development of innovative solutions.
 
 ---
 
