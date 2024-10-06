@@ -81,7 +81,8 @@ Amacımız, kullanıcıları etkili finansal karar verme ve strateji geliştirme
 
 ---
 
-**Yazar**: Serkan Polat
+### Yazar: 
+Serkan Polat
 
 ---
 
@@ -169,6 +170,7 @@ We hope that the **Softforfinance** repository serves as a valuable resource for
 
 ---
 
-**Author**: Serkan Polat
+### Author: 
+Serkan Polat
 
 ---
