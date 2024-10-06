@@ -79,8 +79,11 @@ Amacımız, kullanıcıları etkili finansal karar verme ve strateji geliştirme
 ### Sonuç
 **Soft for Finance** deposunun, finans ve veri bilimi kesişimine ilgi duyanlar için kıymetli bir kaynak olmasını umuyoruz. Amacımız, bilgi paylaşımına destek olan ve yenilikçi çözümlerin geliştirilmesine yardımcı olan bir topluluk oluşturmaktır.
 
+---
 
 **Yazar**: Serkan Polat
+
+---
 
 
 ## English
@@ -164,5 +167,8 @@ Our mission is to equip users with the necessary knowledge and tools to leverage
 ### Conclusion
 We hope that the **Softforfinance** repository serves as a valuable resource for anyone interested in the intersection of finance and data science. Our goal is to foster a community that supports knowledge sharing and encourages the development of innovative solutions.
 
+---
 
 **Author**: Serkan Polat
+
+---
