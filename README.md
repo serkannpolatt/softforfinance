@@ -1,136 +1,168 @@
-
-
 ## Türkçe
+## Softforfinance
 
-### Amaç
-Bu kodun amacı, belirli bir hisse senedinin geçmiş verilerini analiz edebilen ve görselleştirebilen bir hisse senedi analizörü uygulaması sunmaktır. Lineer regresyon,LSTM gibi çeşitli modeller kullanarak çeşitli teknik göstergeler ve tahminler sunarak kullanıcıların bilinçli yatırım kararları almasına yardımcı olur.
+### Genel Bakış
+**Softforfinance** deposuna hoş geldiniz; bu, **Softforware** girişiminin temel taşlarından biridir. Bu depo, finans profesyonellerine, veri bilimcilerine ve finansal veri bilimine dair bilgilerini derinleştirmek isteyen meraklılara yönelik özenle hazırlanmış bir kaynak olarak hizmet vermektedir. Kapsamlı eğitim materyalleri, pratik kod örnekleri ve derinlemesine analizlerle dolu olan bu depo, finans sektöründe veri bilimi tekniklerini uygulama amacını gütmektedir.
 
-### İşlevsellik
-Bu Python kodu, hisse senedi analizörü uygulaması için kullanıcı dostu bir arayüz oluşturmak için Streamlit kütüphanesini kullanır. Yahoo Finance API'den hisse senedi verilerini alır ve görsel olarak çekici ve etkileşimli bir şekilde sunar. Uygulama aşağıdaki özellikleri sunar:
+Amacımız, kullanıcıları etkili finansal karar verme ve strateji geliştirme süreçlerinde gerekli bilgi ve araçlarla donatmaktır. Bu depo, iyi yapılandırılmış eğitim not defterleri, öğreticiler ve finansal analizleri sergileyen kod uygulamaları içermektedir.
 
-- **Hisse senedi verilerinin görüntülenmesi:** Uygulama, belirli bir hisse senedi sembolü için geçmiş hisse senedi verilerini alır ve görüntüler.
+### Depo İçeriği
+- **Özel Eğitim Not Defterleri**: Bu not defterleri, finans alanına özel veri bilimi kavramlarının ayrıntılı açıklamalarını içermekte, kullanıcılara temel ve ileri teknikleri anlamaları konusunda yardımcı olmaktadır.
+- **Pratik Uygulamalar**: Çeşitli finansal analizlerin ve makine öğrenimi modellerinin uygulama örnekleri, kullanıcıların teorinin pratiğe nasıl dönüştüğünü görmelerini sağlamaktadır.
+- **Derinlemesine Analizler**: Finansal veri setlerinin kapsamlı keşfi, görselleştirmeler ve sonuçların yorumlanmasıyla kullanıcıların gerçek dünya finansal senaryolarına uygulanabilir içgörüler elde etmeleri hedeflenmektedir.
+- **Kaynaklar**: Kapsamlı bağlantılar ve akademik makalelere yönlendirmeler, kavramları daha iyi anlamak ve öğrenme deneyimini zenginleştirmek için derlenmiştir.
 
-- **Teknik göstergeler:** Kullanıcılar Kapanış Fiyatları, Göreceli Güç Endeksi (RSI), Bollinger Bantları, On-Balance Volume (OBV), Hareketli Ortalama Yakınsama Diverjansı (MACD), Momentum ve Destek/Direnç gibi çeşitli teknik göstergeleri inceleyebilir. Bu göstergeler, hisse senedinin fiyat trendleri, momentumu ve potansiyel destek ve direnç seviyeleri hakkında bilgi sağlar.
+### Uygulamalar ve Eğitim İçeriği
 
-- **Lineer Regresyon Tahminleri:** Uygulama, geçmiş verilere dayanarak gelecekteki hisse senedi fiyatları için tahminler oluşturmak için lineer regresyon kullanır.
+#### 1. Hisse Senedi Fiyat Analizi
+**Amaç**: Hisse senedi fiyat verilerini analiz etmek ve görselleştirmek.
 
-- **Grafik yakınlaştırma:** Kullanıcılar grafikleri yakınlaştırarak hisse senedinin destek ve direnç seviyelerini daha yakından inceleyebilir.
+**İçerik**:
+- Hisse senedi performansını zaman içinde takip eden zaman serisi analizi.
+- Getiri, volatilite metrikleri ve diğer finansal göstergelerin hesaplanması.
+- Hisse değerlerini değerlendirme yöntemleri ile temel analiz.
 
-- **Gösterge açıklamaları:** Uygulama, her teknik gösterge için açıklamalar ve tanımlamalar sunar, böylece kullanıcılar bunların önemini ve yorumunu anlamalarına yardımcı olur.
+**Teknikler & Modeller**:
+- Zaman serisi tahmini için ARIMA modellerinin kullanımı.
+- Teknik analiz için Hareketli Ortalamalar ve Bollinger Bantları uygulamaları.
 
-### Kullanım
-Hisse senedi analizörü uygulamasını kullanmak için:
+#### 2. Zaman Serisi Tahminleme
+**Amaç**: Finansal zaman serisi verileri için tahmin modelleri geliştirmek.
 
-- Gerekli bağımlılıkları yüklemek için şu komutu çalıştırın:
+**İçerik**:
+- Sıfırdan tahminleme modelleri geliştirmek için kapsamlı öğreticiler.
+- Tarihsel hisse verileri kullanarak gerçek dünya uygulamalarını anlayan pratik örnekler.
 
-      pip install -r requirements.txt
+**Teknikler & Modeller**:
+- Güçlü tahminler için ARIMA, LSTM ve Prophet modellerinin incelenmesi.
 
-- Kodu çalıştırmak için şu komutu çalıştırın:
-  
-      streamlit run app.py
+#### 3. Portföy Optimizasyonu
+**Amaç**: Maksimum getiri sağlarken riskleri yöneten optimal portföyler oluşturmak.
 
-- Streamlit sunucusu başlayacak ve uygulama tarayıcınızda açılacaktır.
+**İçerik**:
+- Farklı varlık sınıflarının ve bunların korelasyonlarının adım adım analizi.
+- Yatırım stratejilerini geliştirmek için portföy oluşturma tekniklerine yönelik interaktif öğreticiler.
 
-- Metin giriş alanına istediğiniz hisse senedi sembolünü girin. Eğer sembol girilmezse, varsayılan sembol olarak `GOOG` kullanılacaktır.
+**Teknikler & Modeller**:
+- Stratejik varlık dağılımı için Ortalama-Varyans Optimizasyonu ve Black-Litterman Modeli uygulamaları.
 
-- Uygulama hisse senedi verilerini alacak ve girilen sembolü görüntüleyecektir. Ardından çeşitli teknik göstergeleri, tahminleri ve grafikleri keşfedebilirsiniz.
+#### 4. Risk Analizi
+**Amaç**: Finansal yatırımlarla ilişkili riskleri değerlendirmek ve ölçmek.
 
-### İçindekiler
+**İçerik**:
+- Çeşitli risk değerlendirme teknikleri ve metodolojilerine yönelik detaylı uygulamalar.
+- Yatırım risklerini yönetmeye yönelik, Value at Risk (VaR) hesaplamalarının pratik uygulamaları.
 
-1. **Veri Alma ve Ön İşleme**: Bu bölümde, "yfinance" kütüphanesini kullanarak geçmiş hisse senedi fiyat verilerini alıyoruz, verileri ön işliyoruz ve Açılış, Kapanış, Yüksek, Düşük fiyatlar ve işlem hacmi gibi ilgili özellikleri çıkarıyoruz. .
+**Teknikler & Modeller**:
+- Risk değerlendirmesi için Monte Carlo simülasyonları ve Tarihsel VaR analizi kullanımı.
 
-2. **Veri Görselleştirme**: Geçmiş hisse senedi fiyat verilerini Matplotlib kullanarak görselleştiriyoruz. Buna açılış ve kapanış fiyatlarının, hareketli ortalamaların, Bollinger Bantlarının ve diğer teknik göstergelerin çizilmesi de dahildir.
+#### 5. Teknik Göstergeler ve Stratejiler
+**Amaç**: Teknik analiz göstergeleri temelinde ticaret stratejileri geliştirmek.
 
-3. **Makine Öğrenimi Modelleri**:
-   - **Doğrusal Regresyon**: Hisse senedi fiyatlarını geçmiş verilere dayanarak tahmin etmek için Doğrusal Regresyon modelini uyguluyoruz.
-   - **LSTM Modeli**: Zaman serisi tahmini için Uzun Kısa Süreli Bellek (LSTM) modeli oluşturuyoruz.
-   - **Transformer Modeli**: Transformer mimarisini kullanarak hisse senedi fiyat tahmini için Transformer modeli oluşturuyoruz.
+**İçerik**:
+- Tarihsel veriler kullanarak etkili ticaret stratejileri oluşturma ve test etme.
+- Ticaret kararlarını bilgilendirmek için çeşitli göstergelerin performans analizleri.
 
-4. **Model Değerlendirme ve Karşılaştırma**: Ortalama Karesel Hata (MSE) gibi ölçümleri kullanarak farklı modellerin performansını değerlendiriyor ve tahminleri görselleştiriyoruz.
+**Teknikler & Modeller**:
+- Piyasa giriş ve çıkış sinyalleri için Hareketli Ortalama Kesişimleri, RSI ve MACD stratejilerinin uygulanması.
 
-5. **Volatilite Analizi**: Hisse senedi fiyatlarının oynaklığını hesaplıyor ve analiz ediyoruz.
+#### 6. Haber Analizi ve Etki Değerlendirme
+**Amaç**: Finansal haberlerin piyasa davranışı üzerindeki etkilerini değerlendirmek.
 
-6. **Ticaret Sinyalleri**: Hareketli ortalama geçişlere dayalı olarak alım ve satım sinyalleri üretiriz.
+**İçerik**:
+- Finansal haberlerin duygu analizi ve piyasa hareketleri ile ilişkisi, piyasa psikolojisini anlamaya yönelik içgörüler sağlamak.
+- Büyük haber olaylarının hisse senedi fiyatları üzerindeki etkilerini inceleyen vaka çalışmaları.
 
-7. **Gelecekteki Fiyat Tahmini**: Gelecekteki fiyat tahminleri yapmak ve tahmin edilen fiyatları görselleştirmek için eğitilmiş modelleri kullanıyoruz.
+**Teknikler & Modeller**:
+- Finansal haber makalelerinin duygu analizi için Doğal Dil İşleme (NLP) tekniklerinin uygulanması.
 
-8. **Gürültü Simülasyonu**: Daha gerçekçi senaryoları simüle etmek için tahmin edilen fiyatlara gürültü ekliyoruz.
+### Sonuç
+**Soft for Finance** deposunun, finans ve veri bilimi kesişimine ilgi duyanlar için kıymetli bir kaynak olmasını umuyoruz. Amacımız, bilgi paylaşımına destek olan ve yenilikçi çözümlerin geliştirilmesine yardımcı olan bir topluluk oluşturmaktır.
 
 
-### Katkıda Bulunma
-Bu projeye katkıda bulunmak isterseniz, depoyu çatallayabilir ve istediğiniz değişiklikleri yapabilirsiniz. Ayrıca, iyileştirmeler veya hata düzeltmeleri için sorunları açabilir veya birleştirme istekleri gönderebilirsiniz.
-
-### Lisans
-Bu kod MIT Lisansı altında lisanslanmıştır. Lisansın şartlarına uygun olarak özgürce kullanabilir, değiştirebilir ve dağıtabilirsiniz.
-
-### Feragatname
-Lütfen bu kodu ve uygulama tarafından sağlanan bilgileri yalnızca eğitim ve bilgilendirme amaçlı olarak kullanın. Finansal tavsiye olarak değerlendirilmemelidir. Her zaman kendi araştırmanızı yapın ve yatırım kararları vermeden önce bir finansal uzmana danışın.
+**Yazar**: Serkan Polat
 
 
 ## English
+## Softforfinance
 
-### Purpose
-The purpose of this code is to provide a stock analyzer application that can analyze and visualize the historical data of a given stock. It offers various technical indicators and predictions using linear regression to assist users in making informed investment decisions.
+### Overview
+Welcome to the **Soft for Finance** repository, a cornerstone of the **Softforware** startup. This repository is meticulously crafted to serve finance professionals, data scientists, and enthusiasts seeking to deepen their understanding of financial data science. It is an extensive collection of custom educational materials, practical coding examples, and in-depth analyses aimed at applying data science techniques within the financial sector.
 
-### Functionality
-This Python code utilizes the Streamlit library to create a user-friendly interface for the stock analyzer application. It retrieves stock data from the Yahoo Finance API and presents it in a visually appealing and interactive manner. The application offers the following features:
+Our mission is to equip users with the necessary knowledge and tools to leverage data science for effective financial decision-making and strategy development. This repository includes well-structured educational notebooks, tutorials, and code implementations that showcase our unique approaches and methodologies.
 
-- **Display of stock data:** The application retrieves and displays the historical stock data for a given stock ticker symbol.
+### Repository Contents
+- **Custom Educational Notebooks**: These notebooks contain detailed explanations of key data science concepts tailored for the finance industry, helping users grasp the fundamentals and advanced techniques.
+- **Practical Applications**: Hands-on implementations of various financial analyses and machine learning models, enabling users to see how theory translates into practice.
+- **In-depth Analyses**: Thorough explorations of financial datasets, including visualizations and interpretation of results, offering insights that can be applied to real-world financial scenarios.
+- **Resources**: Curated links to external resources, articles, and academic papers that further elaborate on the concepts covered, enhancing the learning experience.
 
-- **Technical indicators:** Users can explore various technical indicators such as Close Prices, Relative Strength Index (RSI), Bollinger Bands, On-Balance Volume (OBV), Moving Average Convergence Divergence (MACD), Momentum, and Support/Resistance. These indicators provide insights into the stock's price trends, momentum, and potential support and resistance levels.
+### Applications and Educational Content
 
-- **Linear Regression Predictions:** The application utilizes linear regression to generate predictions for future stock prices based on historical data.
+#### 1. Stock Price Analysis
+**Purpose**: Analyze and visualize stock price data to derive meaningful insights.
 
-- **Chart zooming:** Users can zoom in on the charts to examine the stock's support and resistance levels more closely.
+**Content**:
+- Time series analysis with clear visualizations to track stock performance over time.
+- Calculation of returns, volatility metrics, and other financial indicators.
+- Fundamental analysis methodologies to evaluate stock values.
 
-- **Indicator explanations:** The application provides explanations and descriptions for each technical indicator to help users understand their significance and interpretation.
+**Techniques & Models**:
+- Utilization of ARIMA models for time series forecasting.
+- Application of Moving Averages and Bollinger Bands for technical analysis.
 
-### Table of Contents
+#### 2. Time Series Forecasting
+**Purpose**: Build predictive models for financial time series data.
 
-1. **Data Retrieval and Preprocessing**: In this section, we retrieve historical stock price data using the `yfinance` library, preprocess the data, and extract relevant features such as Open, Close, High, Low prices, and trading volume.
+**Content**:
+- Comprehensive tutorials for developing forecasting models from scratch.
+- Practical examples using historical stock data, enabling users to understand real-world applications.
 
-2. **Data Visualization**: We visualize the historical stock price data using Matplotlib. This includes plotting open and close prices, moving averages, Bollinger Bands, and other technical indicators.
+**Techniques & Models**:
+- Exploration of ARIMA, LSTM, and Prophet models for robust forecasting.
 
-3. **Machine Learning Models**:
-   - **Linear Regression**: We implement a Linear Regression model to predict stock prices based on historical data.
-   - **LSTM Model**: We create a Long Short-Term Memory (LSTM) model for time series prediction.
-   - **Transformer Model**: We build a Transformer model for stock price prediction using the Transformer architecture.
+#### 3. Portfolio Optimization
+**Purpose**: Construct optimal portfolios that maximize returns while managing risk.
 
-4. **Model Evaluation and Comparison**: We evaluate the performance of the different models using metrics such as Mean Squared Error (MSE) and visualize the predictions.
+**Content**:
+- Step-by-step analysis of different asset classes and their correlations.
+- Interactive tutorials guiding users on portfolio construction techniques to enhance investment strategies.
 
-5. **Volatility Analysis**: We calculate and analyze the volatility of the stock prices.
+**Techniques & Models**:
+- Implementation of Mean-Variance Optimization and the Black-Litterman Model for strategic asset allocation.
 
-6. **Trading Signals**: We generate buy and sell signals based on moving average crossovers.
+#### 4. Risk Analysis
+**Purpose**: Assess and quantify risks associated with financial investments.
 
-7. **Future Price Prediction**: We use the trained models to make future price predictions and visualize the forecasted prices.
+**Content**:
+- Detailed walkthroughs of various risk assessment techniques and methodologies.
+- Practical applications of Value at Risk (VaR) calculations, empowering users to manage investment risks effectively.
 
-8. **Noise Simulation**: We add noise to the predicted prices to simulate more realistic scenarios.
+**Techniques & Models**:
+- Use of Monte Carlo simulations and Historical VaR analysis for risk evaluation.
+
+#### 5. Technical Indicators and Strategies
+**Purpose**: Develop trading strategies based on technical analysis indicators.
+
+**Content**:
+- Creating and testing effective trading strategies using historical data for backtesting.
+- Analyzing the performance of various indicators to inform trading decisions.
+
+**Techniques & Models**:
+- Application of Moving Average Crossovers, RSI, and MACD strategies for market entry and exit signals.
+
+#### 6. News Analysis and Impact Evaluation
+**Purpose**: Evaluate the impact of financial news on market behavior.
+
+**Content**:
+- Conducting sentiment analysis of financial news and its correlation with market movements, providing insights into market psychology.
+- Case studies showcasing the effects of major news events on stock prices.
+
+**Techniques & Models**:
+- Implementing Natural Language Processing (NLP) techniques for sentiment analysis of financial news articles.
+
+### Conclusion
+We hope that the **Softforfinance** repository serves as a valuable resource for anyone interested in the intersection of finance and data science. Our goal is to foster a community that supports knowledge sharing and encourages the development of innovative solutions.
 
 
-### Usage
-To use the stock analyzer application:
-
-- Install the necessary dependencies by running the command:
-
-      pip install -r requirements.txt
-
-- Execute the code by running:
-
-      streamlit run app.py
-
-- The Streamlit server will start, and the application will open in your browser.
-
-- Enter the desired stock ticker symbol in the text input field. If no ticker is entered, the default ticker `GOOG` will be used.
-
-- The application will retrieve the stock data and display the entered ticker. You can then explore the various technical indicators, predictions, and charts.
-
-### Contributing
-If you wish to contribute to this project, feel free to fork the repository and make any desired changes. You can also contribute by opening issues or submitting pull requests for improvements or bug fixes.
-
-### License
-This code is licensed under the MIT License. You are free to use, modify, and distribute it in accordance with the terms of the license.
-
-### Disclaimer
-Please note that this code and the information provided by the application are intended for educational and informational purposes only. They should not be considered as financial advice. Always conduct your own research and consult with a financial professional before making any investment decisions.
-
-![699e4762225981 5a89af14d87a9](https://github.com/serkannpolatt/DATA-SCIENCE-FOR-FINANCE/assets/92849974/00a3e488-249f-4126-9997-16554e87daf6)
+**Author**: Serkan Polat
