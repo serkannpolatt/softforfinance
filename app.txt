@@ -1,3 +1,0 @@
-streamlit run "C:/Users/Serkan POLAT/Desktop/Stock Price Prediction-Stok Fiyat Tahmini/app.py"
-
-
