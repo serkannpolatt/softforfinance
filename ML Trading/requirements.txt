@@ -205,7 +205,7 @@ webcolors==1.13
 webencodings==0.5.1
 websocket-client==1.7.0
 websockets==10.4
-Werkzeug==3.0.6
+Werkzeug==3.1.4
 wsproto==1.2.0
 WTForms==3.1.2
 yarl==1.9.4
