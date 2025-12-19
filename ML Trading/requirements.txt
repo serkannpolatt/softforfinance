@@ -42,7 +42,7 @@ exceptiongroup==1.2.0
 exchange_calendars==4.5.2
 executing==2.0.1
 fastjsonschema==2.19.1
-filelock==3.13.1
+filelock==3.20.1
 Flask==3.0.1
 Flask-BabelEx==0.9.4
 Flask-Login==0.6.3
