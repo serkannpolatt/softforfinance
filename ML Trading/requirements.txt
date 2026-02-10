@@ -97,7 +97,7 @@ msgpack==1.0.3
 multidict==5.2.0
 multitasking==0.0.11
 nbclient==0.9.0
-nbconvert==7.14.0
+nbconvert==7.17.0
 nbdime==4.0.1
 nbformat==5.9.2
 nest-asyncio==1.5.8
