@@ -2,7 +2,7 @@ matplotlib==3.9.0
 mplfinance==0.12.10b0
 numpy==1.26.4
 pandas==2.2.2
-pillow==10.3.0
+pillow==12.2.0
 streamlit>=1.37.0
 torch>=2.7.1-rc1
 ultralytics==8.2.39
