@@ -59,7 +59,7 @@ frozendict==2.4.0
 frozenlist==1.4.1
 fsspec==2023.12.2
 gitdb==4.0.11
-GitPython==3.1.47
+GitPython==3.1.50
 greenlet==3.0.3
 h11==0.16.0
 html5lib==1.1
